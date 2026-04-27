@@ -727,8 +727,15 @@ body.home_page {
   top: 3.2rem;
   bottom: 3.2rem;
   left: 3.2rem;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(58, 107, 94, 0.18), rgba(216, 111, 69, 0.24));
+  width: 5px;
+  background: linear-gradient(180deg, var(--green), var(--copper));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 2.2s ease-out 0.2s;
+}
+
+.home_flow_timeline.is_visible::before {
+  transform: scaleY(1);
 }
 
 .home_flow_timeline article {
@@ -992,13 +999,16 @@ body.home_page {
 }
 
 .home_footer_logo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  width: 17rem;
   margin-bottom: 2rem;
-  color: var(--ink);
-  font-family: var(--font-en);
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+}
+
+.home_footer_logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .home_footer_brand p,
