@@ -1131,11 +1131,24 @@ body.home_page {
     bottom: 1.4rem;
     grid-template-columns: 1fr;
     width: calc(100% - 2.8rem);
+    background: transparent;
+    box-shadow: none;
+    border: none;
   }
 
   .home_hero_panel_two div {
     min-height: auto;
     padding: 1.5rem 1.8rem;
+    border-left: none;
+  }
+
+  .home_hero_panel_two strong,
+  .home_hero_panel_two span {
+    color: #fff;
+  }
+
+  .home_hero_panel_two small {
+    color: rgba(255, 255, 255, 0.78);
   }
 
   .home_hero_panel_two strong {
