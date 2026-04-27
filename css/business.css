@@ -265,7 +265,7 @@ em {
   gap: 1.2rem;
   color: var(--green);
   font-family: var(--font-en);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 0.2em;
   line-height: 1.2;
@@ -644,7 +644,7 @@ em {
   max-width: 76rem;
   color: var(--ink);
   font-family: var(--font-title);
-  font-size: clamp(2.7rem, 3.8vw, 4.8rem);
+  font-size: clamp(3.8rem, 5.2vw, 6.6rem);
   font-weight: 600;
   letter-spacing: 0;
   line-height: 1.32;
