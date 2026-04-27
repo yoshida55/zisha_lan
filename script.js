@@ -8,15 +8,15 @@ window.addEventListener('load', () => {
   if (!header) return;
   window.addEventListener('scroll', () => {
     if (window.scrollY > 80) {
-      header.classList.add('header--scrolled');
+      header.classList.add('header_scrolled');
     } else {
-      header.classList.remove('header--scrolled');
+      header.classList.remove('header_scrolled');
     }
   }, { passive: true });
 })();
 
 // FV背景スライドショー（クロスフェード）
-const fvSlides = document.querySelectorAll('.fv-bg-slide');
+const fvSlides = document.querySelectorAll('.fv_bg_slide');
 if (fvSlides.length > 0) {
   let current = 0;
   setInterval(() => {
@@ -30,7 +30,7 @@ if (fvSlides.length > 0) {
 const io = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
+      entry.target.classList.add('is_visible');
       io.unobserve(entry.target);
     }
   });
@@ -41,19 +41,19 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const softRevealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
+      entry.target.classList.add('is_visible');
       softRevealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.18 });
 
-document.querySelectorAll('.js-soft-reveal').forEach(el => softRevealObserver.observe(el));
+document.querySelectorAll('.js_soft_reveal').forEach(el => softRevealObserver.observe(el));
 
 // 自動無限スライダー
 const track = document.getElementById('sliderTrack');
 
 if (track) {
-  const cards = Array.from(track.querySelectorAll('.slide-card'));
+  const cards = Array.from(track.querySelectorAll('.slide_card'));
   cards.forEach(card => track.appendChild(card.cloneNode(true)));
 
   let pos = 0;
