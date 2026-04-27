@@ -18,14 +18,14 @@
 .company_hero_title {
   font-size: 4.8rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--ink);
   margin: 1rem 0 2rem;
   font-family: 'Shippori Mincho', serif;
 }
 
 .company_hero_lead {
   font-size: 1.6rem;
-  color: var(--text-secondary);
+  color: var(--muted);
   line-height: 1.8;
 }
 
@@ -48,13 +48,13 @@
 .company_philosophy_card h3 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--ink);
   margin: 1rem 0 1.6rem;
 }
 
 .company_philosophy_card p {
   font-size: 1.5rem;
-  color: var(--text-secondary);
+  color: var(--muted);
   line-height: 1.9;
 }
 
@@ -80,13 +80,13 @@
 
 .company_overview_table th {
   width: 20rem;
-  color: var(--text-secondary);
+  color: var(--muted);
   font-weight: 500;
   white-space: nowrap;
 }
 
 .company_overview_table td {
-  color: var(--text-primary);
+  color: var(--ink);
 }
 
 /* ── レスポンシブ ── */
