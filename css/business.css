@@ -212,7 +212,6 @@ em {
   right: clamp(2rem, 4vw, 7rem);
   bottom: 18rem;
   z-index: 1;
-  color: rgba(126, 148, 174, 0.2);
   color: rgba(23, 27, 32, 0.08);
   font-family: var(--font-en);
   font-size: clamp(8rem, 15vw, 18rem);
