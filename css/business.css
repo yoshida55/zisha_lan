@@ -282,16 +282,16 @@ em {
   color: var(--green);
 }
 
-.business_hero h1 {
+.business_hero_title {
   position: relative;
   max-width: 78rem;
   margin-top: 2rem;
   color: var(--ink);
   font-family: var(--font-title);
-  font-size: clamp(4.4rem, 7vw, 8.6rem);
+  font-size: 6.7rem;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 1.06;
+  line-height: 1.6;
 }
 
 .business_marker {
@@ -311,10 +311,11 @@ em {
 }
 
 .business_hero_lead {
-  max-width: 63rem;
+  width: 100%;
+  max-width: 51rem;
   margin-top: 3rem;
   color: var(--muted);
-  font-size: clamp(1.5rem, 1.3vw, 1.75rem);
+  font-size: clamp(1.7rem, 1.6vw, 2rem);
   line-height: 2;
 }
 
@@ -1456,9 +1457,9 @@ em {
     display: none;
   }
 
-  .business_hero h1 {
-    font-size: 4rem;
-  }
+  /* .business_hero h1 {
+    font-size: 5rem;
+  } */
 
   .business_hero_lead {
     font-size: 1.52rem;
