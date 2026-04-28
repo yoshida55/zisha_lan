@@ -841,9 +841,17 @@ body.home_page {
   padding-bottom: 9.6rem;
 }
 
-.home_faq .home_section_head,
-.home_flow .home_section_head {
+.home_faq .home_section_head {
   text-align: center;
+}
+
+.home_flow .home_section_head {
+  text-align: left;
+}
+
+.home_flow .home_section_lead {
+  margin: 0;
+  padding-left: 0.5rem;
 }
 
 .faq_img {
