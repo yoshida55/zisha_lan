@@ -18,7 +18,6 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
 /* ============================================================
    ベース
    html・body・画像など、ページ全体に効くリセット・基本設定
@@ -58,7 +57,6 @@ a {
 em {
   font-style: normal;
 }
-
 
 /* ============================================================
    共通パーツ
@@ -156,7 +154,6 @@ em {
   border-color: var(--green);
   background: var(--soft-green);
 }
-
 
 /* ============================================================
    ヘッダー
@@ -265,7 +262,6 @@ em {
   transform: translateY(-1px);
 }
 
-
 /* ============================================================
    ヒーロー（最初の大きなエリア）
    左にテキスト、右に写真。背景に薄い "Business" の文字装飾あり
@@ -364,7 +360,9 @@ em {
 }
 
 @keyframes business_marker-draw {
-  to { background-size: 100% 0.28em; }
+  to {
+    background-size: 100% 0.28em;
+  }
 }
 
 .business_hero_lead {
@@ -394,24 +392,41 @@ em {
   animation: hero-copy-in 0.82s var(--ease) forwards;
 }
 
-.business_hero .section_label { animation-delay: 0.16s; }
-.business_hero h1             { animation-delay: 0.3s; }
-.business_hero_lead           { animation-delay: 0.5s; }
-.business_hero_actions        { animation-delay: 0.7s; }
+.business_hero .section_label {
+  animation-delay: 0.16s;
+}
+.business_hero h1 {
+  animation-delay: 0.3s;
+}
+.business_hero_lead {
+  animation-delay: 0.5s;
+}
+.business_hero_actions {
+  animation-delay: 0.7s;
+}
 
 @keyframes hero-copy-in {
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @keyframes hero-media-in {
-  to { opacity: var(--hero-media-opacity); filter: blur(0); }
+  to {
+    opacity: var(--hero-media-opacity);
+    filter: blur(0);
+  }
 }
 
 @keyframes hero-image-drift {
-  from { transform: scale(1.05) translate3d(0, 0, 0); }
-  to   { transform: scale(1.1) translate3d(-1.4rem, 0.8rem, 0); }
+  from {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(-1.4rem, 0.8rem, 0);
+  }
 }
-
 
 /* ============================================================
    作業風景（横スクロールギャラリー）
@@ -503,14 +518,29 @@ em {
   box-shadow: 0 2rem 4rem rgba(23, 27, 32, 0.1);
 }
 
-.overview_flow_card_large  { width: 43rem; height: 24rem; }
-.overview_flow_card_medium { width: 33rem; height: 22rem; }
-.overview_flow_card_small  { width: 25rem; height: 18rem; }
+.overview_flow_card_large {
+  width: 43rem;
+  height: 24rem;
+}
+.overview_flow_card_medium {
+  width: 33rem;
+  height: 22rem;
+}
+.overview_flow_card_small {
+  width: 25rem;
+  height: 18rem;
+}
 
 /* カードを高さ方向にずらして奥行き感を出す */
-.overview_flow_card:nth-child(2) { margin-top: 4.4rem; }
-.overview_flow_card:nth-child(3) { margin-top: 1.6rem; }
-.overview_flow_card:nth-child(4) { margin-top: 5.4rem; }
+.overview_flow_card:nth-child(2) {
+  margin-top: 4.4rem;
+}
+.overview_flow_card:nth-child(3) {
+  margin-top: 1.6rem;
+}
+.overview_flow_card:nth-child(4) {
+  margin-top: 5.4rem;
+}
 
 .overview_flow_card img {
   filter: saturate(0.94) brightness(1.04);
@@ -546,15 +576,22 @@ em {
 }
 
 @keyframes flow-ribbons {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-34rem, 0, 0); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-34rem, 0, 0);
+  }
 }
 
 @keyframes flow-gallery {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
-
 
 /* ============================================================
    軽作業セクション
@@ -648,7 +685,6 @@ em {
   font-size: 1.34rem;
   line-height: 1.8;
 }
-
 
 /* ============================================================
    IT作業セクション
@@ -749,7 +785,6 @@ em {
   line-height: 1.9;
 }
 
-
 /* ============================================================
    支援体制セクション
    3つのカード。上部に色ライン（緑・オレンジ・青）で区別
@@ -785,8 +820,12 @@ em {
   background: var(--green);
 }
 
-.support_grid article:nth-child(2)::before { background: var(--copper); }
-.support_grid article:nth-child(3)::before { background: var(--blue); }
+.support_grid article:nth-child(2)::before {
+  background: var(--copper);
+}
+.support_grid article:nth-child(3)::before {
+  background: var(--blue);
+}
 
 .support_grid span {
   color: var(--green);
@@ -796,8 +835,12 @@ em {
   letter-spacing: 0.1em;
 }
 
-.support_grid article:nth-child(2) span { color: var(--copper); }
-.support_grid article:nth-child(3) span { color: var(--blue); }
+.support_grid article:nth-child(2) span {
+  color: var(--copper);
+}
+.support_grid article:nth-child(3) span {
+  color: var(--blue);
+}
 
 .support_grid h3 {
   margin-top: 1.6rem;
@@ -813,7 +856,6 @@ em {
   font-size: 1.42rem;
   line-height: 1.9;
 }
-
 
 /* ============================================================
    1日の流れ（タイムライン）
@@ -912,12 +954,24 @@ em {
   animation: daily_item-in 0.72s var(--ease) forwards;
 }
 
-.daily_section.is_visible .daily_item:nth-child(1) { animation-delay: 0.1s; }
-.daily_section.is_visible .daily_item:nth-child(2) { animation-delay: 0.18s; }
-.daily_section.is_visible .daily_item:nth-child(3) { animation-delay: 0.26s; }
-.daily_section.is_visible .daily_item:nth-child(4) { animation-delay: 0.34s; }
-.daily_section.is_visible .daily_item:nth-child(5) { animation-delay: 0.42s; }
-.daily_section.is_visible .daily_item:nth-child(6) { animation-delay: 0.5s; }
+.daily_section.is_visible .daily_item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.daily_section.is_visible .daily_item:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.daily_section.is_visible .daily_item:nth-child(3) {
+  animation-delay: 0.26s;
+}
+.daily_section.is_visible .daily_item:nth-child(4) {
+  animation-delay: 0.34s;
+}
+.daily_section.is_visible .daily_item:nth-child(5) {
+  animation-delay: 0.42s;
+}
+.daily_section.is_visible .daily_item:nth-child(6) {
+  animation-delay: 0.5s;
+}
 
 /* 縦線上の丸ドット */
 .daily_item::before {
@@ -965,12 +1019,20 @@ em {
 }
 
 /* カードごとに写真の見せ場（フォーカス位置）を調整 */
-.daily_card_arrival .daily_card_media img                              { object-position: center 48%; }
-.daily_card_start .daily_card_media img                                { object-position: center 44%; }
+.daily_card_arrival .daily_card_media img {
+  object-position: center 48%;
+}
+.daily_card_start .daily_card_media img {
+  object-position: center 44%;
+}
 .daily_card_work .daily_card_media img,
-.daily_card_afternoon .daily_card_media img                            { object-position: center 56%; }
+.daily_card_afternoon .daily_card_media img {
+  object-position: center 56%;
+}
 .daily_card_break .daily_card_media img,
-.daily_card_review .daily_card_media img                               { object-position: center 38%; }
+.daily_card_review .daily_card_media img {
+  object-position: center 38%;
+}
 
 .daily_card_body {
   display: grid;
@@ -1016,9 +1078,11 @@ em {
 }
 
 @keyframes daily_item-in {
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
-
 
 /* ============================================================
    CTA（お問い合わせ）
@@ -1064,7 +1128,6 @@ em {
   font-size: 1.48rem;
   line-height: 2;
 }
-
 
 /* ============================================================
    フッター
@@ -1113,7 +1176,6 @@ em {
   letter-spacing: 0.06em;
 }
 
-
 /* ============================================================
    スクロールアニメーション
    [data-animate] を付けた要素がスクロールで表示されたときフェードイン
@@ -1130,7 +1192,6 @@ em {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* ============================================================
    アニメーション軽減（アクセシビリティ）
@@ -1177,10 +1238,13 @@ em {
   }
 
   /* ギャラリーはゆっくりにするだけで止めない */
-  .overview_flow_ribbons { animation: flow-ribbons 42s linear infinite !important; }
-  .overview_flow_track   { animation: flow-gallery 48s linear infinite !important; }
+  .overview_flow_ribbons {
+    animation: flow-ribbons 42s linear infinite !important;
+  }
+  .overview_flow_track {
+    animation: flow-gallery 48s linear infinite !important;
+  }
 }
-
 
 /* ============================================================
    タブレット（1100px以下）
@@ -1217,9 +1281,15 @@ em {
     padding-bottom: 8rem;
   }
 
-  .overview_flow_card_large  { width: 42rem; }
-  .overview_flow_card_medium { width: 32rem; }
-  .overview_flow_card_small  { width: 25rem; }
+  .overview_flow_card_large {
+    width: 42rem;
+  }
+  .overview_flow_card_medium {
+    width: 32rem;
+  }
+  .overview_flow_card_small {
+    width: 25rem;
+  }
 
   .support_grid {
     grid-template-columns: 1fr;
@@ -1234,7 +1304,6 @@ em {
     text-align: center;
   }
 }
-
 
 /* ============================================================
    スマホ（700px以下）
@@ -1329,9 +1398,18 @@ em {
     border-radius: 2.2rem;
   }
 
-  .overview_flow_card_large  { width: 33rem; height: 21rem; }
-  .overview_flow_card_medium { width: 27rem; height: 19rem; }
-  .overview_flow_card_small  { width: 22rem; height: 16rem; }
+  .overview_flow_card_large {
+    width: 33rem;
+    height: 21rem;
+  }
+  .overview_flow_card_medium {
+    width: 27rem;
+    height: 19rem;
+  }
+  .overview_flow_card_small {
+    width: 22rem;
+    height: 16rem;
+  }
 
   .overview_flow_message {
     max-width: none;

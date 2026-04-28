@@ -640,7 +640,7 @@ body.home_page {
   gap: 6rem;
   width: min(118rem, calc(100% - 4rem));
   margin: 0 auto;
-  padding: 9.6rem 0;
+  padding: 7.2rem 0;
 }
 
 .home_work_text {
@@ -961,7 +961,7 @@ body.home_page {
   align-items: start;
   width: min(118rem, calc(100% - 4rem));
   margin: 0 auto;
-  padding: 9.6rem 0;
+  padding: 7.2rem 0;
 }
 
 .home_contact .home_kicker {
