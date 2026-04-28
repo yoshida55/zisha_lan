@@ -176,16 +176,9 @@ body.home_page {
   color: #fff;
 }
 
-.home_page .nav_link_cta {
-  background: rgba(23, 27, 32, 0.18);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(23, 27, 32, 0.12);
-  border-radius: 8px;
-  padding: 0.9rem 1.5rem;
-  color: var(--ink);
-  font-size: 1.35rem;
-  font-weight: 500;
-  transition: background 0.3s;
+.home_page .nav_menu {
+  color: black;
+  font-weight: bold;
 }
 
 .home_page .nav_link_cta:hover {
@@ -448,8 +441,14 @@ body.home_page {
   margin-bottom: 4rem;
 }
 
+/* faqセクションの「よくあるご質問」のみ、下の余白をなくす  */
+.home_section_head h2:nth-child(2) {
+  margin-bottom: 0rem;
+  padding-bottom: 0rem;
+}
+
 .home_section_lead {
-  max-width: 68rem;
+  max-width: 69rem;
   margin: 0 auto;
   color: var(--muted);
   font-size: 1.65rem;
@@ -627,7 +626,9 @@ body.home_page {
 
 .home_work {
   position: relative;
-  background: linear-gradient(135deg, #2a7a66 0%, #0e3b34 100%);
+  background:
+    linear-gradient(90deg, rgba(42, 122, 102, 0.60) 0%, rgba(14, 59, 52, 0.82) 100%),
+    url("../img/背景画像用３人がデスクで話す(私服).png") center / cover no-repeat;
   color: #fff;
   overflow: hidden;
 }
@@ -651,9 +652,13 @@ body.home_page {
   color: rgba(255, 255, 255, 0.85);
 }
 
+.home_work h2 {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 .home_work_text p:not(.home_kicker) {
   margin: 2.4rem 0 0;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 1);
   font-size: 1.65rem;
   line-height: 2;
 }
@@ -719,6 +724,7 @@ body.home_page {
 
 .home_flow_timeline {
   position: relative;
+  /*子要素（STEPカード）を縦に並べて、間に均等な隙間（1.4rem）を入れるため*/
   display: grid;
   gap: 1.4rem;
   max-width: 86rem;
@@ -730,7 +736,7 @@ body.home_page {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -2rem;
+  left: -1.8rem;
   width: 2px;
   background: rgba(58, 107, 94, 0.35);
   transform: scaleY(0);
@@ -752,7 +758,7 @@ body.home_page {
   border: 1px solid rgba(23, 27, 32, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.72);
-  padding: 2.4rem 1rem;
+  padding: 1rem 1rem;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
 }
 

@@ -16,7 +16,8 @@
       "Bash(C:/Python313/python.exe -c \"import sys; sys.path.insert\\(0, 'D:/01_AI/10_Python/00_Python_src/99_commit/auto-memo-mcp'\\); import server; print\\('import OK'\\); print\\('tools:', [t for t in dir\\(server\\) if not t.startswith\\('_'\\)]\\)\")",
       "Bash(git push *)",
       "mcp__auto-memo__memo_write_all",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "mcp__auto-memo__memo_read_context"
     ],
     "additionalDirectories": [
       "D:\\01_AI\\10_Python\\00_Python_src\\99_commit\\84_auto-memo補助MCPツール"

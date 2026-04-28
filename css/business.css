@@ -807,7 +807,14 @@ em {
   padding: 2.8rem;
   overflow: hidden;
   backdrop-filter: blur(14px);
+  opacity: 0;
+  transform: translateX(-3rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+.support_section.is_visible .support_grid article:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
+.support_section.is_visible .support_grid article:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.support_section.is_visible .support_grid article:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.3s; }
 
 /* カード上部の色ライン */
 .support_grid article::before {
@@ -873,7 +880,7 @@ em {
   z-index: 1;
   width: min(var(--container), calc(100% - var(--gutter) * 2));
   margin: 0 auto;
-  padding: 11rem 0;
+  padding: 11rem 0 7.2rem;
 }
 
 .daily_head {
@@ -1089,7 +1096,7 @@ em {
    暗い背景に白テキスト。グラデで奥行き感を演出
    ============================================================ */
 .cta_section {
-  padding: 11rem var(--gutter);
+  padding: 7.2rem var(--gutter);
   background: var(--paper);
 }
 
