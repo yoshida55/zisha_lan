@@ -540,13 +540,14 @@ body.home_page {
 .home_service_feature {
   display: grid;
   grid-template-rows: 30rem 1fr;
-  border: 1px solid var(--line);
+  border-radius: 0 90px 0 0;
   background: rgba(255, 255, 255, 0.78);
   overflow: hidden;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  outline: 0.1px solid grey;
 }
 
 .home_service_feature:hover {
@@ -571,19 +572,22 @@ body.home_page {
 }
 
 .home_service_feature_body {
-  padding: 3.2rem;
+  padding: 2.2rem;
 }
 
 .home_service_feature_body > span {
   display: inline-grid;
   place-items: center;
-  width: 4.4rem;
-  height: 4.4rem;
+  width: 9rem;
+  height: 3.5rem;
+  border-radius: 50px;
+  margin-top: 2rem;
   margin-bottom: 2.4rem;
   background: var(--green);
   color: #fff;
   font-family: var(--font-en);
   font-weight: 700;
+  position: relative;
 }
 
 .home_service_feature_warm .home_service_feature_body > span {
@@ -718,14 +722,15 @@ body.home_page {
 .home_flow_timeline::before {
   content: "";
   position: absolute;
-  top: 3.2rem;
-  bottom: 3.2rem;
-  left: 3.2rem;
-  width: 5px;
-  background: linear-gradient(180deg, var(--green), var(--copper));
+  top: 0;
+  bottom: 0;
+  left: -2rem;
+  width: 2px;
+  background: rgba(58, 107, 94, 0.35);
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 2.2s ease-out 0.2s;
+  border-radius: 2px;
 }
 
 .home_flow_timeline.is_visible::before {
@@ -735,44 +740,74 @@ body.home_page {
 .home_flow_timeline article {
   position: relative;
   display: grid;
-  grid-template-columns: 6.4rem 1fr;
-  gap: 2.6rem;
+  grid-template-columns: 25rem 1fr;
+  gap: 0.3rem;
+  align-items: center;
   border: 1px solid rgba(23, 27, 32, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.72);
-  padding: 2.2rem 2.4rem 2.2rem 2rem;
+  padding: 2.4rem 1rem;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
 }
 
 .home_flow_timeline article:last-child {
-  padding-bottom: 2.2rem;
+  padding-bottom: 2.4rem;
+}
+
+.home_flow_icon {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
 }
 
 .home_flow_timeline b {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 6.4rem;
-  height: 6.4rem;
-  border: 1px solid rgba(58, 107, 94, 0.18);
-  border-radius: 8px;
-  background: #eef7f4;
-  color: var(--green);
+  display: block;
   font-family: var(--font-en);
-  font-size: 1.45rem;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.04);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  margin-bottom: 0.6rem;
+}
+
+.home_flow_timeline b::before {
+  content: "STEP ";
+}
+
+.home_flow_timeline article:nth-child(1),
+.home_flow_timeline article:nth-child(3) {
+  background: #edf6f2;
+}
+
+.home_flow_timeline article:nth-child(2),
+.home_flow_timeline article:nth-child(4) {
+  background: #f0f8f5;
 }
 
 .home_flow_timeline article:nth-child(2) b {
-  border-color: rgba(216, 111, 69, 0.22);
-  background: #fff1ea;
   color: var(--copper);
 }
 
-.home_flow_timeline article:nth-child(3) b {
-  border-color: rgba(58, 107, 94, 0.16);
-  background: #f4f1ea;
+.home_flow_timeline article:nth-child(4) b {
+  color: var(--copper);
+}
+
+.home_flow_timeline article::before {
+  content: "";
+  position: absolute;
+  left: -2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: rgba(58, 107, 94, 0.5);
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 2px rgba(58, 107, 94, 0.35);
 }
 
 .home_flow_timeline h3 {

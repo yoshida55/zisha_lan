@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { background: #f6f2ec; font-family: 'Noto Sans JP', sans-serif; padding: 4rem 2rem; }
+  h2 { font-size: 2.4rem; margin-bottom: 2rem; text-align: center; color: #171b20; }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; }
+  .label { text-align: center; font-size: 1.2rem; color: #66707a; margin-bottom: 1.6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+
+  /* 共通カード */
+  .flow { display: grid; gap: 1.2rem; }
+  .card { display: grid; gap: 2rem; border: 1px solid rgba(23,27,32,.08); border-radius: 8px; background: rgba(255,255,255,.8); padding: 2rem; box-shadow: 0 8px 32px rgba(0,0,0,.04); }
+  .title { font-size: 1.8rem; font-weight: 700; margin: 0 0 .5rem; color: #171b20; }
+  .desc { font-size: 1.3rem; color: #66707a; margin: 0; line-height: 1.7; }
+
+  /* パターンA：現在（数字のみ） */
+  .a .card { grid-template-columns: 6.4rem 1fr; align-items: start; }
+  .a .num { display: grid; place-items: center; width: 6.4rem; height: 6.4rem; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 700; }
+  .a .num.g { background: #eef7f4; color: #3a6b5e; border: 1px solid rgba(58,107,94,.2); }
+  .a .num.c { background: #fff1ea; color: #d86f45; border: 1px solid rgba(216,111,69,.2); }
+
+  /* パターンB：アイコン＋数字 */
+  .b .card { grid-template-columns: 7.2rem 1fr; align-items: start; }
+  .b .badge { display: flex; flex-direction: column; align-items: center; gap: .4rem; width: 7.2rem; }
+  .b .badge .icon-wrap { display: grid; place-items: center; width: 5.2rem; height: 5.2rem; border-radius: 12px; }
+  .b .badge .icon-wrap.g { background: #eef7f4; border: 1px solid rgba(58,107,94,.2); }
+  .b .badge .icon-wrap.c { background: #fff1ea; border: 1px solid rgba(216,111,69,.2); }
+  .b .badge svg { width: 2.4rem; height: 2.4rem; }
+  .b .badge .num-label { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; color: #66707a; letter-spacing: .05em; }
+
+  /* パターンC：アイコン大きめ・横並び */
+  .c .card { grid-template-columns: 8rem 1fr; align-items: center; }
+  .c .badge { display: grid; place-items: center; width: 8rem; height: 8rem; border-radius: 16px; position: relative; }
+  .c .badge.g { background: #eef7f4; border: 1px solid rgba(58,107,94,.2); }
+  .c .badge.c { background: #fff1ea; border: 1px solid rgba(216,111,69,.2); }
+  .c .badge svg { width: 3.2rem; height: 3.2rem; }
+  .c .badge .step-num { position: absolute; top: -.6rem; right: -.6rem; background: #3a6b5e; color: #fff; font-size: 1rem; font-weight: 700; font-family: 'Inter', sans-serif; border-radius: 50%; width: 2rem; height: 2rem; display: grid; place-items: center; }
+  .c .badge.c .step-num { background: #d86f45; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+</style>
+</head>
+<body>
+
+<div class="compare">
+
+  <!-- 現在 -->
+  <div>
+    <div class="label">現在（数字のみ）</div>
+    <div class="flow a">
+      <div class="card">
+        <div class="num g">01</div>
+        <div><p class="title">お問い合わせ・見学</p><p class="desc">まずは事業所の雰囲気や作業内容を見ていただけます。</p></div>
+      </div>
+      <div class="card">
+        <div class="num c">02</div>
+        <div><p class="title">見学・体験</p><p class="desc">得意なこと、不安なことを一緒に確認します。</p></div>
+      </div>
+      <div class="card">
+        <div class="num g">03</div>
+        <div><p class="title">面接・結果通知</p><p class="desc">スタッフとの面接を経て、利用の可否をご連絡します。</p></div>
+      </div>
+      <div class="card">
+        <div class="num c">04</div>
+        <div><p class="title">利用開始</p><p class="desc">無理のないペースで、軽作業やIT業務に取り組みます。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 案B：アイコン小＋番号ラベル -->
+  <div>
+    <div class="label">案B：アイコン＋番号</div>
+    <div class="flow b">
+      <div class="card">
+        <div class="badge">
+          <div class="icon-wrap g">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a6b5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.37 2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+            </svg>
+          </div>
+          <span class="num-label">01</span>
+        </div>
+        <div><p class="title">お問い合わせ・見学</p><p class="desc">まずは事業所の雰囲気や作業内容を見ていただけます。</p></div>
+      </div>
+      <div class="card">
+        <div class="badge">
+          <div class="icon-wrap c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d86f45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <span class="num-label">02</span>
+        </div>
+        <div><p class="title">見学・体験</p><p class="desc">得意なこと、不安なことを一緒に確認します。</p></div>
+      </div>
+      <div class="card">
+        <div class="badge">
+          <div class="icon-wrap g">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a6b5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <span class="num-label">03</span>
+        </div>
+        <div><p class="title">面接・結果通知</p><p class="desc">スタッフとの面接を経て、利用の可否をご連絡します。</p></div>
+      </div>
+      <div class="card">
+        <div class="badge">
+          <div class="icon-wrap c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d86f45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <span class="num-label">04</span>
+        </div>
+        <div><p class="title">利用開始</p><p class="desc">無理のないペースで、軽作業やIT業務に取り組みます。</p></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 案C：アイコン大＋バッジ -->
+<div style="max-width:600px; margin: 4rem auto 0;">
+  <div class="label" style="margin-bottom:1.6rem;">案C：大きめアイコン＋番号バッジ（右上）</div>
+  <div class="flow c">
+    <div class="card">
+      <div class="badge g"><svg viewBox="0 0 24 24" fill="none" stroke="#3a6b5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.37 2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><span class="step-num">01</span></div>
+      <div><p class="title">お問い合わせ・見学</p><p class="desc">まずは事業所の雰囲気や作業内容を見ていただけます。</p></div>
+    </div>
+    <div class="card">
+      <div class="badge c"><svg viewBox="0 0 24 24" fill="none" stroke="#d86f45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span class="step-num">02</span></div>
+      <div><p class="title">見学・体験</p><p class="desc">得意なこと、不安なことを一緒に確認します。</p></div>
+    </div>
+    <div class="card">
+      <div class="badge g"><svg viewBox="0 0 24 24" fill="none" stroke="#3a6b5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span class="step-num">03</span></div>
+      <div><p class="title">面接・結果通知</p><p class="desc">スタッフとの面接を経て、利用の可否をご連絡します。</p></div>
+    </div>
+    <div class="card">
+      <div class="badge c"><svg viewBox="0 0 24 24" fill="none" stroke="#d86f45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polyline points="20 6 9 17 4 12"/></svg><span class="step-num">04</span></div>
+      <div><p class="title">利用開始</p><p class="desc">無理のないペースで、軽作業やIT業務に取り組みます。</p></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
