@@ -443,12 +443,12 @@ body.home_page {
 
 .home_section_head {
   max-width: 100%;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .home_section_lead {
   max-width: 68rem;
-  margin: 2.2rem 0 0;
+  margin: 0 auto;
   color: var(--muted);
   font-size: 1.65rem;
   line-height: 2;
@@ -501,6 +501,10 @@ body.home_page {
 .home_about_body h2 {
   margin-bottom: 1.2rem;
   text-wrap: balance;
+}
+
+.home_section_head h2 {
+  margin-bottom: 2rem;
 }
 
 .js_soft_reveal {
@@ -716,7 +720,7 @@ body.home_page {
   display: grid;
   gap: 1.4rem;
   max-width: 86rem;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .home_flow_timeline::before {
@@ -829,11 +833,29 @@ body.home_page {
   padding-bottom: 9.6rem;
 }
 
+.home_faq .home_section_head,
+.home_flow .home_section_head {
+  text-align: center;
+}
+
+.faq_img {
+  display: block;
+  height: 7rem;
+  width: auto;
+  margin: 0 auto 0;
+  mix-blend-mode: multiply;
+}
+
+.home_faq .home_kicker {
+  border-left: none;
+  padding-left: 0;
+}
+
 .home_faq_list {
   display: grid;
   gap: 1.8rem;
   max-width: 88rem;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .home_faq_list details {
@@ -1144,6 +1166,10 @@ body.home_page {
   .home_work h2,
   .home_contact h2 {
     font-size: 2.2rem;
+  }
+
+  .home_section h2 {
+    margin-bottom: 2rem;
   }
 
   .home_hero_text,
