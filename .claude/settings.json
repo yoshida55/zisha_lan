@@ -17,7 +17,12 @@
       "Bash(git push *)",
       "mcp__auto-memo__memo_write_all",
       "Bash(python3 -c ' *)",
-      "mcp__auto-memo__memo_read_context"
+      "mcp__auto-memo__memo_read_context",
+      "Edit(~/.claude/skills/quiz/**)",
+      "Bash(\"C:\\\\Users\\\\sensh\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\code.exe\" \"D:/50_knowledge/00_mis_log.md:185\")",
+      "Bash(cmd /c \"code -g D:/50_knowledge/00_mis_log.md:185\")",
+      "Bash(cmd /c code -g \"D:/50_knowledge/00_mis_log.md:185\")",
+      "Bash(cmd /c code \"D:/50_knowledge/00_mis_log.md\")"
     ],
     "additionalDirectories": [
       "D:\\01_AI\\10_Python\\00_Python_src\\99_commit\\84_auto-memo補助MCPツール"
