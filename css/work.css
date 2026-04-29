@@ -524,7 +524,7 @@ body.home_page {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 6.4rem;
   align-items: center;
-  padding-bottom: 10rem;
+  padding-bottom: 2rem;
 }
 
 .home_about_image {
