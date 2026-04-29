@@ -141,13 +141,10 @@ a {
 
 /* 「事業内容」「お問い合わせ」は黒・太字で目立たせる */
 .home_page .nav_menu {
-  color: black;
+  color: var(--ink);
   font-weight: bold;
 }
 
-.home_page .nav_link_cta:hover {
-  background: rgba(23, 27, 32, 0.28);
-}
 
 /* お問い合わせCTAボタン */
 .nav_cta {
@@ -161,7 +158,9 @@ a {
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
 }
 
 .nav_cta::after {
@@ -263,51 +262,6 @@ body.home_page {
   opacity: 0;
 }
 
-/* 3枚のスライドが animation-delay でずれながら順番にフェードイン・アウトを繰り返す */
-.home_hero_slide {
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
-  opacity: 0; /* 最初は透明。アニメーションで表示 */
-  transform: scale(1.04); /* 少し大きく始めてゆっくり縮むとリッチに見える */
-  animation: home_hero_crossfade 18s infinite;
-  filter: saturate(0.95) contrast(1.04);
-}
-
-.home_hero_slide_1 {
-  background-image: url("../img/女性の就労支援員と就労者が相談している(チャットGPT版).png");
-  animation-delay: 0s;
-}
-
-.home_hero_slide_2 {
-  background-image: url("../img/同じほうこうをむいているIT.png");
-  animation-delay: 6s; /* 6秒後に表示開始 */
-  filter: brightness(1.2) saturate(0.95) contrast(1.04); /* 暗めの写真を明るく補正 */
-}
-
-.home_hero_slide_3 {
-  background-image: url("../img/軽作業風景_AI.png");
-  animation-delay: 12s; /* 12秒後に表示開始 */
-  filter: brightness(1.2) saturate(0.95) contrast(1.04);
-}
-
-/* 0%〜8%: 出てくる / 8%〜30%: 表示中 / 40%〜: 消える */
-@keyframes home_hero_crossfade {
-  0% {
-    opacity: 0;
-    transform: scale(1.04);
-  }
-  8%,
-  30% {
-    opacity: 1;
-  }
-  40%,
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
 
 /* テキスト類は z-index: 2 でオーバーレイ（::after）より前面に出す */
 .home_hero_inner {
@@ -625,30 +579,15 @@ body.home_page {
 /* 初期状態は透明・少し下にずれている。script.js が is_visible を付けたら表示 */
 .js_soft_reveal {
   opacity: 0;
-  transform: translateY(2rem);
+  transform: translateY(4rem);
   transition:
     opacity 0.7s ease,
-    transform 0.7s ease;
+    transform 0.8s ease;
 }
 
 .js_soft_reveal.is_visible {
   opacity: 1;
   transform: none;
-}
-
-/* About の画像は scale もつけて少し拡大→縮小する演出を追加 */
-.home_about_image.js_soft_reveal {
-  transform: translateY(2rem) scale(1.025);
-  filter: brightness(0.94);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease,
-    filter 0.8s ease;
-}
-
-.home_about_image.js_soft_reveal.is_visible {
-  transform: none;
-  filter: brightness(1);
 }
 
 /* ┌─────────────────────────────────────────┐
@@ -888,15 +827,6 @@ body.home_page {
   overflow: hidden;
 }
 
-/* 動画をセクション全体に object-fit: cover で引き伸ばして敷く */
-.home_work_bg_video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
 
 /* 動画の上に半透明の緑グラデーションをかぶせてテキストを読みやすくする */
 .home_work::after {
@@ -930,6 +860,7 @@ body.home_page {
 .home_work_text.js_soft_reveal.is_visible {
   transform: none;
 }
+
 
 .home_work_text .home_kicker {
   color: rgba(255, 255, 255, 0.85);
@@ -976,37 +907,6 @@ body.home_page {
   line-height: 1.45;
 }
 
-/* ギャラリーグリッド（現在は非表示。将来使う想定で残しているスタイル） */
-.home_work_gallery {
-  display: grid;
-  grid-template-columns: 1fr 0.72fr;
-  grid-template-rows: 26rem 22rem;
-  gap: 1.4rem;
-}
-
-.home_work_gallery figure {
-  margin: 0;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.home_work_gallery img,
-.home_work_gallery video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.home_work_gallery figure:hover img,
-.home_work_gallery figure:hover video {
-  transform: scale(1.04);
-}
-
-/* 1枚目だけ2行分の高さを使って大きく表示 */
-.home_work_gallery figure:first-child {
-  grid-row: 1 / 3;
-}
 
 /* ┌─────────────────────────────────────────┐
    │ フロー・タイムライン（利用までの流れ）        │
@@ -1015,6 +915,7 @@ body.home_page {
 .home_flow {
   position: relative;
   overflow: hidden;
+  padding-top: 20rem;
 }
 
 /* 背景ウォーターマーク "FLOW" */
@@ -1159,9 +1060,6 @@ body.home_page {
   text-align: center;
 }
 
-.home_flow {
-  padding-top: 20rem;
-}
 
 .home_flow .home_section_head {
   text-align: left;
@@ -1401,7 +1299,7 @@ body.home_page {
   min-height: 5.4rem;
   border: 0;
   border-radius: 6px;
-  background: #d86f45;
+  background: var(--copper);
   color: #fff;
   font: inherit;
   font-size: 1.5rem;
