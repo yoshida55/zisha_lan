@@ -627,7 +627,7 @@ body.home_page {
 .home_work {
   position: relative;
   background:
-    linear-gradient(90deg, rgba(42, 122, 102, 0.6) 0%, rgba(14, 59, 52, 0.82) 100%),
+    linear-gradient(90deg, rgba(42, 122, 102, 0.55) 0%, rgba(14, 59, 52, 0.72) 100%),
     url("../img/背景画像用３人がデスクで話す(私服).png") center / cover no-repeat;
   color: #fff;
   overflow: hidden;
@@ -727,7 +727,7 @@ body.home_page {
   /*子要素（STEPカード）を縦に並べて、間に均等な隙間（1.4rem）を入れるため*/
   display: grid;
   gap: 1.4rem;
-  max-width: 86rem;
+  max-width: 100rem;
   margin: 0 auto;
 }
 
@@ -871,7 +871,7 @@ body.home_page {
 .home_faq_list {
   display: grid;
   gap: 0;
-  max-width: 88rem;
+  max-width: 100rem;
   margin: 0 auto;
 }
 
@@ -1048,8 +1048,8 @@ body.home_page {
   min-height: 5.4rem;
   border: 0;
   border-radius: 6px;
-  background: #fff;
-  color: var(--ink);
+  background: #d86f45;
+  color: #fff;
   font: inherit;
   font-size: 1.5rem;
   font-weight: 800;
