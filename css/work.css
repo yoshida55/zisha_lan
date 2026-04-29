@@ -293,7 +293,7 @@ body.home_page {
 .home_hero_title span {
   display: block;
   opacity: 0;
-  transform: translateX(-4rem);
+  transform: translateX(-7rem);
   animation: home_fade_in 0.9s ease-out forwards;
 }
 
@@ -316,7 +316,7 @@ body.home_page {
   background-repeat: no-repeat;
   background-size: 0% 0.28em;
   background-position: left 84%;
-  animation: home_marker_draw 0.9s ease-out 1.25s forwards;
+  animation: home_marker_draw 1.2s ease-out 1.5s forwards;
 }
 
 @keyframes home_marker_draw {
@@ -872,10 +872,10 @@ body.home_page {
 
 .faq_img {
   display: block;
-  height: 7rem;
-  width: auto;
-  margin: 0 auto 0;
-  mix-blend-mode: multiply;
+  height: 10rem;
+  width: 40%;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .home_faq .home_kicker {
