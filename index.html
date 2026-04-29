@@ -48,7 +48,7 @@
         </a>
         <div class="header_actions">
           <a href="business.html" class="nav_link nav_menu">事業内容</a>
-          <a href="#contact" class="nav_link nav_menu">お問い合わせ</a>
+          <a href="#contact" class="nav_link nav_cta">お問い合わせ</a>
           <!--
             ハンバーガーボタン（三本線メニュー）
             <span> 3つが CSS で横線に見える仕組み。
@@ -74,11 +74,12 @@
         スクリーンリーダーには読み上げさせない。
       -->
       <section class="home_hero">
-        <div class="home_hero_media" aria-hidden="true">
-          <div class="home_hero_slide home_hero_slide_1"></div>
-          <div class="home_hero_slide home_hero_slide_2"></div>
-          <div class="home_hero_slide home_hero_slide_3"></div>
-        </div>
+        <video class="home_hero_bg_video home_hero_bg_video_1" autoplay muted playsinline aria-hidden="true">
+          <source src="img/女性の就労支援員と就労者が相談している(チャットGPT版).mp4" type="video/mp4" />
+        </video>
+        <video class="home_hero_bg_video home_hero_bg_video_2" muted playsinline aria-hidden="true">
+          <source src="img/背景画像用３人がデスクで話す(私服).mp4" type="video/mp4" />
+        </video>
 
         <!--
           ヒーロー内のテキストエリア。
@@ -101,23 +102,6 @@
           </div>
         </div>
 
-        <!--
-          右下に固定されている「01 / 02」の情報パネル。
-          position: absolute で画像の右下に重ねて配置している。
-          スマホでは CSS で display: none にして非表示になる。
-        -->
-        <div class="home_hero_panel" aria-label="対応業務">
-          <div>
-            <strong>01</strong>
-            <span>手を動かす仕事</span>
-            <small>封入・検品・梱包など</small>
-          </div>
-          <div>
-            <strong>02</strong>
-            <span>パソコンで進める仕事</span>
-            <small>Web制作・データ入力など</small>
-          </div>
-        </div>
       </section>
 
       <!-- ========== About セクション ========== -->
@@ -180,6 +164,7 @@
               <div class="home_service_feature_body">
                 <span>02</span>
                 <h3>IT業務</h3>
+                <p class="home_service_feature_reassure">PCの基本から始められます</p>
                 <p>Web制作、ページ更新、データ入力、画像整理など、パソコンを使った仕事です。得意や関心に合わせて、少しずつ経験を広げていきます。</p>
                 <p class="home_service_feature_note">作業手順を確認しながら、日々の更新作業や運用補助もご相談いただけます。</p>
               </div>
@@ -190,12 +175,12 @@
 
       <!-- Services(軽作業とIT業務の画像)とWork Scene(背景動画エリア) 橋渡し -->
       <div class="service_bridge">
-        <p class="service_bridge_lead">まだ決めていなくても、大丈夫です。</p>
-        <p class="service_bridge_text">
+        <p class="service_bridge_lead js_soft_reveal">まだ決めていなくても、大丈夫です。</p>
+        <p class="service_bridge_text js_soft_reveal">
           見学だけでも、話を聞くだけでも。<br />
           一人で悩まず、気軽に相談してください。
         </p>
-        <a href="#contact" class="home_button home_button_primary">まず見学の相談をする</a>
+        <a href="#contact" class="home_button home_button_primary js_soft_reveal">まず見学の相談をする</a>
       </div>
 
       <!-- ========== Work Scene セクション（背景動画エリア） ========== -->
@@ -210,9 +195,6 @@
         aria-hidden="true" で読み上げ対象から外している。
       -->
       <section class="home_work" id="works">
-        <video class="home_work_bg_video" autoplay muted loop playsinline aria-hidden="true">
-          <source src="img/背景画像用３人がデスクで話す(私服).mp4" type="video/mp4" />
-        </video>
         <div class="home_work_inner">
           <div class="home_work_text js_soft_reveal">
             <p class="home_kicker">Work Scene</p>

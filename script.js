@@ -26,6 +26,33 @@ if (fvSlides.length > 0) {
   }, 3000);
 }
 
+// ヒーロー動画クロスフェード（5秒ごとに交互切り替え）
+(function () {
+  const v1 = document.querySelector('.home_hero_bg_video_1');
+  const v2 = document.querySelector('.home_hero_bg_video_2');
+  if (!v1 || !v2) return;
+
+  const DURATION = 5000;
+  let current = 1;
+
+  setInterval(() => {
+    if (current === 1) {
+      v1.style.opacity = '0';
+      v2.currentTime = 0;
+      v2.style.opacity = '1';
+      v2.play();
+      current = 2;
+    } else {
+      v2.style.opacity = '0';
+      v1.currentTime = 0;
+      v1.style.opacity = '1';
+      v1.play();
+      current = 1;
+    }
+  }, DURATION);
+})();
+
+
 // スクロール出現アニメーション
 const io = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
