@@ -626,16 +626,31 @@ body.home_page {
 
 .home_work {
   position: relative;
-  background:
-    linear-gradient(90deg, rgba(42, 122, 102, 0.55) 0%, rgba(14, 59, 52, 0.72) 100%),
-    url("../img/背景画像用３人がデスクで話す(私服).png") center / cover no-repeat;
+  background: #0e3b34;
   color: #fff;
   overflow: hidden;
 }
 
+.home_work_bg_video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.home_work::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(42, 122, 102, 0.55) 0%, rgba(14, 59, 52, 0.72) 100%);
+}
+
 .home_work_inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   grid-template-columns: minmax(36rem, 0.88fr) minmax(0, 1.12fr);
   gap: 6rem;
