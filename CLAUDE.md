@@ -89,6 +89,21 @@
 - About セクションに「見学の相談をする」ボタン追加
 - Work Scene セクションの背景を画像 → 動画に変更
 
+### index.html のリファクタリング（追加）
+- `home_hero_panel home_hero_panel_two` → `home_hero_panel` 1クラスに統合（CSS側も統合）
+- コメントアウトのギャラリーコード削除
+- `js_soft_reveal` を子要素1つずつ → 親要素にまとめた（22個 → 7個に削減）
+  - `home_about_body` / `home_section_head` / `home_work_text` / `home_flow_timeline` に移動
+  - flow の個別 article からは削除（親が既に持っているため）
+- ヒーローパネルの内容を「仙台東口・西口」→「手を動かす仕事 / パソコンで進める仕事」に変更
+
+### index.html にコメント追加
+- 全セクションに人間らしい日本語コメントを追記（仕組みの解説つき）
+
+### work.css にコメント追加
+- 全セクションをボックス区切りコメントで整理
+- 各プロパティに1行インラインコメントを追記
+
 ### business.html の変更
 - 軽作業セクションの画像 → 動画（`軽作業風景_2.mp4`）に変更
 - 「支援のしくみ」セクション削除（ナビ・CSS・descriptionも含む）
