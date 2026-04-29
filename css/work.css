@@ -426,17 +426,11 @@ body.home_page {
   bottom: 0;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(3, minmax(14rem, 1fr));
-  width: min(64rem, 58vw);
+  grid-template-columns: repeat(2, minmax(16rem, 1fr));
+  width: min(48rem, 46vw);
   background: rgba(255, 255, 255, 0.94);
   color: var(--ink);
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
-}
-
-/* 現在使っているのはこちらの2列バージョン */
-.home_hero_panel_two {
-  grid-template-columns: repeat(2, minmax(16rem, 1fr));
-  width: min(48rem, 46vw);
 }
 
 .home_hero_panel div {
@@ -1344,7 +1338,7 @@ body.home_page {
   }
 
   /* パネルはスマホでは邪魔になるので非表示 */
-  .home_hero_panel_two {
+  .home_hero_panel {
     display: none;
   }
 

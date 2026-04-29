@@ -35,7 +35,6 @@
     たとえばヘッダーの透明化・背景のグリッドパターンなどが home_page 限定のスタイル。
   -->
   <body class="home_page">
-
     <!-- ========== ヘッダー ========== -->
     <!--
       position: fixed で画面上部に固定。
@@ -65,7 +64,6 @@
     </header>
 
     <main>
-
       <!-- ========== ヒーローセクション ========== -->
       <!--
         トップのフルスクリーン画像エリア。
@@ -108,7 +106,7 @@
           position: absolute で画像の右下に重ねて配置している。
           スマホでは CSS で display: none にして非表示になる。
         -->
-        <div class="home_hero_panel home_hero_panel_two" aria-label="対応業務">
+        <div class="home_hero_panel" aria-label="対応業務">
           <div>
             <strong>01</strong>
             <span>仙台東口（軽作業）</span>
@@ -136,12 +134,12 @@
           <div class="home_about_image js_soft_reveal">
             <img src="img/女性の就労支援員と就労者が相談している.png" alt="スタッフが相談しながら業務を進めている様子" />
           </div>
-          <div class="home_about_body">
-            <p class="home_kicker js_soft_reveal">About us</p>
-            <h2 class="js_soft_reveal">一人ひとりに合った、働く場所がここにあります。</h2>
-            <p class="js_soft_reveal">私たちは、軽作業・IT業務を通じて、一人ひとりが自分のペースで働く経験を重ねられる就労継続支援事業所です。得意なことや不安なことを一緒に確認しながら、無理のない形で仕事に向き合えるよう支援します。</p>
-            <p class="js_soft_reveal">「まず見学だけしたい」「どんな仕事があるか知りたい」そんな段階からでも、気軽にご相談ください。</p>
-            <a href="#contact" class="home_button home_button_primary js_soft_reveal">まず見学の相談をする</a>
+          <div class="home_about_body js_soft_reveal">
+            <p class="home_kicker">About us</p>
+            <h2>一人ひとりに合った、働く場所がここにあります。</h2>
+            <p>私たちは、軽作業・IT業務を通じて、一人ひとりが自分のペースで働く経験を重ねられる就労継続支援事業所です。得意なことや不安なことを一緒に確認しながら、無理のない形で仕事に向き合えるよう支援します。</p>
+            <p>「まず見学だけしたい」「どんな仕事があるか知りたい」そんな段階からでも、気軽にご相談ください。</p>
+            <a href="#contact" class="home_button home_button_primary">まず見学の相談をする</a>
           </div>
         </div>
       </section>
@@ -154,9 +152,9 @@
         CSS の grid-template-rows で「画像エリアの高さ固定 + テキストは残りを埋める」構成。
       -->
       <section class="home_section home_services" id="service">
-        <div class="home_section_head">
-          <p class="home_kicker js_soft_reveal">Services</p>
-          <h2 class="js_soft_reveal">軽作業とIT業務、2つの仕事があります。</h2>
+        <div class="home_section_head js_soft_reveal">
+          <p class="home_kicker">Services</p>
+          <h2>軽作業とIT業務、2つの仕事があります。</h2>
         </div>
         <div class="home_service_columns">
           <article class="home_service_feature js_soft_reveal">
@@ -200,39 +198,25 @@
           <source src="img/背景画像用３人がデスクで話す(私服).mp4" type="video/mp4" />
         </video>
         <div class="home_work_inner">
-          <div class="home_work_text">
-            <p class="home_kicker js_soft_reveal">Work Scene</p>
-            <h2 class="js_soft_reveal">安心して取り組める環境で、仕事に向き合っています。</h2>
-            <p class="js_soft_reveal">スタッフがそばで確認しながら、軽作業やIT業務に取り組める環境を整えています。 働く人にとっての安心感と、企業にとっての任せやすさの両方を大切にしています。</p>
+          <div class="home_work_text js_soft_reveal">
+            <p class="home_kicker">Work Scene</p>
+            <h2>安心して取り組める環境で、仕事に向き合っています。</h2>
+            <p>スタッフがそばで確認しながら、軽作業やIT業務に取り組める環境を整えています。 働く人にとっての安心感と、企業にとっての任せやすさの両方を大切にしています。</p>
             <div class="home_work_points" aria-label="作業体制の特徴">
-              <article class="js_soft_reveal">
+              <article>
                 <span>Support</span>
                 <strong>そばで確認できる体制</strong>
               </article>
-              <article class="js_soft_reveal">
+              <article>
                 <span>Work</span>
                 <strong>実際の仕事に取り組む</strong>
               </article>
-              <article class="js_soft_reveal">
+              <article>
                 <span>Quality</span>
                 <strong>丁寧さを大切にする</strong>
               </article>
             </div>
           </div>
-          <!-- ギャラリーエリア（現在は非表示。将来使う可能性があるので残してある）
-          <div class="home_work_gallery">
-            <figure>
-              <video autoplay muted loop playsinline poster="img/同じ方向をむいて作業している（席がまばら）.png" aria-label="オフィスで相談している様子の動画">
-                <source src="img/オフィスで話あっている動画.mp4" type="video/mp4" />
-              </video>
-            </figure>
-            <figure>
-              <img src="img/軽作業風景_1.jpg" alt="軽作業をしている様子" />
-            </figure>
-            <figure>
-              <img src="img/デスク風景.png" alt="デスクで作業している様子" />
-            </figure>
-          </div> -->
         </div>
       </section>
 
@@ -246,12 +230,12 @@
         HTMLには "01" の数字だけ書けばいい。
       -->
       <section class="home_section home_flow" id="flow">
-        <div class="home_section_head">
-          <h2 class="js_soft_reveal">相談から利用開始まで、無理なく進めます。</h2>
-          <p class="home_section_lead js_soft_reveal">はじめての方でも安心して相談できるよう、見学や体験の時間を大切にしています。 作業内容や通い方を一緒に確認しながら、自分に合った働き方を探していきます。</p>
+        <div class="home_section_head js_soft_reveal">
+          <h2>相談から利用開始まで、無理なく進めます。</h2>
+          <p class="home_section_lead">はじめての方でも安心して相談できるよう、見学や体験の時間を大切にしています。 作業内容や通い方を一緒に確認しながら、自分に合った働き方を探していきます。</p>
         </div>
         <div class="home_flow_timeline js_soft_reveal">
-          <article class="js_soft_reveal">
+          <article>
             <img src="img/お問合せフロー１アイコン_問い合わせ_見学-removebg-preview.png" alt="お問い合わせ・見学のアイコン" class="home_flow_icon" />
             <div>
               <b>01</b>
@@ -259,7 +243,7 @@
               <p>まずは事業所の雰囲気や作業内容を見ていただけます。ご本人だけでなく、ご家族や支援者の方からのご相談も可能です。</p>
             </div>
           </article>
-          <article class="js_soft_reveal">
+          <article>
             <img src="img/お問合せフロー２アイコン_問い合わせ_見学-removebg-preview.png" alt="見学・体験のアイコン" class="home_flow_icon" />
             <div>
               <b>02</b>
@@ -267,7 +251,7 @@
               <p>得意なこと、不安なこと、希望する働き方を一緒に確認します。実際の作業を体験しながら、自分に合う形を考えていきます。</p>
             </div>
           </article>
-          <article class="js_soft_reveal">
+          <article>
             <img src="img/お問合せフロー3__アイコン_問い合わせ_見学-removebg-preview.png" alt="面接・結果通知のアイコン" class="home_flow_icon" />
             <div>
               <b>03</b>
@@ -275,7 +259,7 @@
               <p>スタッフとの面接を経て、利用の可否をご連絡します。ご本人の状況や希望をもとに、丁寧にお伝えします。</p>
             </div>
           </article>
-          <article class="js_soft_reveal">
+          <article>
             <img src="img/お問合せフロー4__アイコン_問い合わせ_見学-removebg-preview.png" alt="利用開始のアイコン" class="home_flow_icon" />
             <div>
               <b>04</b>
@@ -295,11 +279,11 @@
         CSS で Q / A アイコンや開閉の矢印（∨ ∧）を疑似要素で追加している。
       -->
       <section class="home_section home_faq" id="faq">
-        <div class="home_section_head">
+        <div class="home_section_head js_soft_reveal">
           <p class="home_kicker">• Q&A •</p>
-          <h2 class="js_soft_reveal">よくあるご質問</h2>
-          <img class="faq_img js_soft_reveal" src="img/Q_Aの葉っぱの画像-removebg-preview.png" alt="" />
-          <p class="home_section_lead js_soft_reveal">見学や利用を考えている方、ご家族、支援者の方が気になりやすい内容をまとめました。</p>
+          <h2>よくあるご質問</h2>
+          <img class="faq_img" src="img/Q_Aの葉っぱの画像-removebg-preview.png" alt="" />
+          <p class="home_section_lead">見学や利用を考えている方、ご家族、支援者の方が気になりやすい内容をまとめました。</p>
         </div>
         <div class="home_faq_list">
           <details>
