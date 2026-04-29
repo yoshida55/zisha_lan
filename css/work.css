@@ -512,20 +512,26 @@ body.home_page {
   overflow: hidden;
 }
 
-/* 背景ウォーターマーク "ABOUT" */
-.home_about::before {
-  content: "ABOUT";
+/* 背景ウォーターマーク 共通スタイル */
+.home_about::before,
+.home_flow::before,
+.home_contact::before {
   position: absolute;
-  bottom: -2rem;
-  right: -3rem;
   font-family: var(--font-en);
-  font-size: 22rem;
+  font-size: 16rem;
   font-weight: 800;
-  color: rgba(23, 27, 32, 0.05);
   white-space: nowrap;
   pointer-events: none;
   letter-spacing: 0.05em;
   line-height: 1;
+}
+
+/* 各セクション固有の内容・位置・色 */
+.home_about::before {
+  content: "ABOUT";
+  bottom: -2rem;
+  right: -3rem;
+  color: rgba(23, 27, 32, 0.05);
 }
 
 /* 画像（左）とテキスト（右）を grid で横並び。0.9fr / 1.1fr で微妙に非対称にしている */
@@ -918,20 +924,11 @@ body.home_page {
   padding-top: 20rem;
 }
 
-/* 背景ウォーターマーク "FLOW" */
 .home_flow::before {
   content: "FLOW";
-  position: absolute;
   top: 10rem;
   left: -3rem;
-  font-family: var(--font-en);
-  font-size: 22rem;
-  font-weight: 800;
   color: rgba(23, 27, 32, 0.05);
-  white-space: nowrap;
-  pointer-events: none;
-  letter-spacing: 0.05em;
-  line-height: 1;
 }
 
 .home_flow_timeline {
@@ -1200,20 +1197,12 @@ body.home_page {
   overflow: hidden;
 }
 
-/* 背景ウォーターマーク "CONTACT"（白・低透明度） */
 .home_contact::before {
   content: "CONTACT";
-  position: absolute;
   bottom: -3rem;
   right: -4rem;
-  font-family: var(--font-en);
-  font-size: 18rem;
-  font-weight: 800;
+  font-size: 14rem; /* CONTACTは文字数が多いので少し小さめ */
   color: rgba(255, 255, 255, 0.05);
-  white-space: nowrap;
-  pointer-events: none;
-  letter-spacing: 0.05em;
-  line-height: 1;
 }
 
 .home_contact_inner {
