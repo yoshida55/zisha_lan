@@ -5,14 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>株式会社リンクワーク | 就労継続支援・軽作業・IT業務</title>
     <meta name="description" content="軽作業やIT業務を通じて、一人ひとりの働く力を育てる就労継続支援事業所です。利用を考えている方にも、仕事を依頼したい企業にも、安心して相談いただける体制を大切にしています。" />
+
+    <!--
+      フォントの読み込み（Google Fonts）
+      preconnect を先に書くことで、フォントサーバーへの接続を早めている。
+      読み込むフォントは3種類：
+        - Noto Sans JP  → 本文・ナビなど日本語全般
+        - Inter         → 英字ラベル・数字（"01" など）
+        - Shippori Mincho → 大見出しに使う明朝体。高級感を出すために採用
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Inter:wght@500;600;700&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <!--
+      work.css がメインのスタイルシート。
+      reset.css → style.css → work.css の順に読まれるので、
+      後に書いたものが優先（上書き）される。
+    -->
     <link rel="stylesheet" href="css/work.css" />
   </head>
+
+  <!--
+    body に "home_page" クラスを付けている理由：
+    business.html など他ページと同じ CSS ファイルを使っているため、
+    「このページだけ」スタイルを変えたいときに .home_page セレクタで絞り込める。
+    たとえばヘッダーの透明化・背景のグリッドパターンなどが home_page 限定のスタイル。
+  -->
   <body class="home_page">
+
+    <!-- ========== ヘッダー ========== -->
+    <!--
+      position: fixed で画面上部に固定。
+      ホームページでは最初は透明（背景がヒーロー画像に溶け込む）になっていて、
+      スクロールすると script.js が "header_scrolled" クラスを付けて見た目を変える。
+    -->
     <header class="header">
       <div class="header_inner">
         <a href="index.html" class="logo" aria-label="株式会社リンクワーク トップページ">
@@ -21,6 +50,11 @@
         <div class="header_actions">
           <a href="business.html" class="nav_link nav_menu">事業内容</a>
           <a href="#contact" class="nav_link nav_menu">お問い合わせ</a>
+          <!--
+            ハンバーガーボタン（三本線メニュー）
+            <span> 3つが CSS で横線に見える仕組み。
+            aria-label でスクリーンリーダーにも「メニューを開く」と伝えている。
+          -->
           <button class="hamburger" aria-label="メニューを開く">
             <span></span>
             <span></span>
@@ -31,12 +65,30 @@
     </header>
 
     <main>
+
+      <!-- ========== ヒーローセクション ========== -->
+      <!--
+        トップのフルスクリーン画像エリア。
+        背景画像が3枚、自動でクロスフェード（じわっと切り替わる）するようになっている。
+        仕組みは CSS の @keyframes アニメーションで、
+        3枚の div が順番に opacity: 0 → 1 → 0 を繰り返している。
+        テキストや画像より下のレイヤーにいるので aria-hidden="true" を付けて
+        スクリーンリーダーには読み上げさせない。
+      -->
       <section class="home_hero">
         <div class="home_hero_media" aria-hidden="true">
           <div class="home_hero_slide home_hero_slide_1"></div>
           <div class="home_hero_slide home_hero_slide_2"></div>
           <div class="home_hero_slide home_hero_slide_3"></div>
         </div>
+
+        <!--
+          ヒーロー内のテキストエリア。
+          h1 の各 <span> に animation-delay を少しずらしてあるので、
+          「一人ひとりの力を、」→「確かな仕事へ」→「つなげていく。」と
+          1行ずつ左からフェードインしてくる演出になっている。
+          home_marker の em タグは「確かな仕事へ」に引かれるオレンジ下線アニメーション。
+        -->
         <div class="home_hero_inner">
           <p class="home_kicker">Work Support</p>
           <h1 class="home_hero_title">
@@ -50,6 +102,12 @@
             <a href="#service" class="home_button home_button_ghost">どんな仕事があるか見る</a>
           </div>
         </div>
+
+        <!--
+          右下に固定されている「01 / 02」の情報パネル。
+          position: absolute で画像の右下に重ねて配置している。
+          スマホでは CSS で display: none にして非表示になる。
+        -->
         <div class="home_hero_panel home_hero_panel_two" aria-label="対応業務">
           <div>
             <strong>01</strong>
@@ -64,6 +122,15 @@
         </div>
       </section>
 
+      <!-- ========== About セクション ========== -->
+      <!--
+        js_soft_reveal クラスについて（このページ全体で使っている）:
+        このクラスが付いた要素は最初 opacity: 0（透明）で画面に存在している。
+        script.js の IntersectionObserver が「画面内に入ってきた」を検知したとき
+        "is_visible" クラスを追加して、CSS の transition でふわっと表示される仕組み。
+        ページ読み込み時に一気に全部見せるより、スクロールに合わせて出てくる方が
+        読む人の視線を自然に誘導できる。
+      -->
       <section class="home_section home_about" id="about">
         <div class="home_about_grid">
           <div class="home_about_image js_soft_reveal">
@@ -79,6 +146,13 @@
         </div>
       </section>
 
+      <!-- ========== サービスセクション ========== -->
+      <!--
+        2つのサービス（軽作業・IT業務）を並べたカードエリア。
+        home_service_feature_warm クラスが付いているほうが「IT業務」カードで、
+        ラベルの色がオレンジ（copper）になる。
+        CSS の grid-template-rows で「画像エリアの高さ固定 + テキストは残りを埋める」構成。
+      -->
       <section class="home_section home_services" id="service">
         <div class="home_section_head">
           <p class="home_kicker js_soft_reveal">Services</p>
@@ -110,6 +184,17 @@
         </div>
       </section>
 
+      <!-- ========== Work Scene セクション（背景動画エリア） ========== -->
+      <!--
+        背景に動画を敷いた緑のセクション。
+        レイヤー構造がポイントで、下から順に：
+          1. <video>（z-index: 0）→ 背景動画
+          2. ::after 疑似要素（z-index: 1）→ 緑のグラデーションオーバーレイ
+          3. .home_work_inner（z-index: 2）→ テキスト（最前面）
+        動画には autoplay muted loop playsinline を付けることで、
+        スマホでも自動再生・ループ・音なしで動く。
+        aria-hidden="true" で読み上げ対象から外している。
+      -->
       <section class="home_work" id="works">
         <video class="home_work_bg_video" autoplay muted loop playsinline aria-hidden="true">
           <source src="img/背景画像用３人がデスクで話す(私服).mp4" type="video/mp4" />
@@ -134,7 +219,8 @@
               </article>
             </div>
           </div>
-          <!-- <div class="home_work_gallery">
+          <!-- ギャラリーエリア（現在は非表示。将来使う可能性があるので残してある）
+          <div class="home_work_gallery">
             <figure>
               <video autoplay muted loop playsinline poster="img/同じ方向をむいて作業している（席がまばら）.png" aria-label="オフィスで相談している様子の動画">
                 <source src="img/オフィスで話あっている動画.mp4" type="video/mp4" />
@@ -150,6 +236,15 @@
         </div>
       </section>
 
+      <!-- ========== 利用までの流れ（タイムライン）========== -->
+      <!--
+        STEP 01〜04 を縦に並べたタイムライン。
+        左に縦線（::before 疑似要素）が走っていて、スクロールで画面内に入ると
+        scaleY(0) → scaleY(1) のアニメーションで線が上から伸びてくる演出。
+        article ごとに左の点（::before）も CSS で作っていて、HTMLには何も書いていない。
+        <b> タグに "STEP " という文字が CSS の content で自動追加されるので、
+        HTMLには "01" の数字だけ書けばいい。
+      -->
       <section class="home_section home_flow" id="flow">
         <div class="home_section_head">
           <h2 class="js_soft_reveal">相談から利用開始まで、無理なく進めます。</h2>
@@ -191,6 +286,14 @@
         </div>
       </section>
 
+      <!-- ========== よくあるご質問（FAQ）========== -->
+      <!--
+        <details> と <summary> はHTMLの標準タグで、
+        JavaScript なしでアコーディオン（クリックで開閉）が作れる。
+        summary がクリックされる「質問文」の部分で、
+        その下の <p> が開いたときに見える「回答」。
+        CSS で Q / A アイコンや開閉の矢印（∨ ∧）を疑似要素で追加している。
+      -->
       <section class="home_section home_faq" id="faq">
         <div class="home_section_head">
           <p class="home_kicker">• Q&A •</p>
@@ -222,6 +325,14 @@
         </div>
       </section>
 
+      <!-- ========== お問い合わせフォーム ========== -->
+      <!--
+        緑のグラデーション背景の上に、すりガラス風（glassmorphism）のフォームを配置。
+        backdrop-filter: blur() で後ろをぼかして半透明感を出している。
+        現状は action="#" なので送信しても画面が変わるだけ（実際には送信されない）。
+        本番では action にメール送信スクリプトのURLを入れる必要がある。
+        home_contact_form_wide クラスは「テキストエリアだけ2列またがせる」ための CSS クラス。
+      -->
       <section class="home_contact" id="contact">
         <div class="home_contact_inner">
           <div>
@@ -260,6 +371,12 @@
       </section>
     </main>
 
+    <!-- ========== フッター ========== -->
+    <!--
+      4カラムの grid レイアウト（ロゴ・会社情報・ナビ・CTAボタン）。
+      スマホでは 1カラムに変わる。
+      home_footer_bottom は著作権表記とリンクを横並びにした細い帯エリア。
+    -->
     <footer class="home_footer">
       <div class="home_footer_inner">
         <div class="home_footer_brand">
@@ -299,6 +416,13 @@
       </div>
     </footer>
 
+    <!--
+      script.js でやっていること（2つ）：
+        1. スクロール量を見てヘッダーに "header_scrolled" クラスを付ける
+        2. IntersectionObserver で "js_soft_reveal" クラスの要素が
+           画面に入ったら "is_visible" を追加してふわっと表示させる
+      </body> の直前に置くことで、HTML が全部読み込まれてから JS が動く。
+    -->
     <script src="script.js"></script>
   </body>
 </html>

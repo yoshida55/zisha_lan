@@ -7,7 +7,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* padding を足しても幅が変わらないようにする */
 }
 
 :root {
@@ -21,7 +21,6 @@
 
   /* ── 背景・線 ── */
   --bg: #fafaf7; /* ベース背景：body・header */
-  --bg-card: #ffffff; /* カード背景：会社概要ページのカード */
   --line: rgba(23, 27, 32, 0.12); /* 罫線：header下線・区切り線 */
 
   /* ── フォント ── */
@@ -39,24 +38,25 @@ body {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: inherit; /* aタグは親の文字色を引き継がないのでここで明示 */
 }
 
 /* ┌─────────────────────────────────────────┐
-   │ ヘッダー                        │
+   │ ヘッダー                                 │
    └─────────────────────────────────────────┘ */
 
 .header {
-  position: fixed;
+  position: fixed; /* 画面上部に常に固定 */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 100; /* 他の要素より必ず前面に出す */
   border-bottom: 1px solid var(--line);
   background: var(--bg);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px); /* 背景をすりガラス風にぼかす */
 }
 
+/* ホームページだけ、最初は透明にして背景画像と一体化させる */
 .home_page .header {
   border-bottom: none;
   background: transparent;
@@ -80,7 +80,7 @@ a {
   display: inline-flex;
   align-items: center;
   width: 17rem;
-  min-width: 0;
+  min-width: 0; /* flexコンテナ内でロゴが縮まないよう保護 */
 }
 
 .logo img {
@@ -88,6 +88,21 @@ a {
   height: auto;
   object-fit: contain;
 }
+
+/* ホームページ用のヘッダー拡張（幅広・高さ確保） */
+.home_page .logo {
+  transition: opacity 0.3s ease;
+}
+
+.home_page .header_inner {
+  max-width: 118rem;
+  min-height: 7.2rem;
+  padding: 1.2rem 2rem;
+}
+
+/* ┌─────────────────────────────────────────┐
+   │ ナビゲーション                            │
+   └─────────────────────────────────────────┘ */
 
 .nav {
   display: flex;
@@ -105,63 +120,7 @@ a {
   color: var(--ink);
 }
 
-body.home_page {
-  background: linear-gradient(90deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), linear-gradient(0deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), #f6f2ec;
-  background-size: 48px 48px;
-  color: var(--ink);
-  font-family: var(--font-ja);
-}
-
-.home_page .header.header_scrolled {
-  background: transparent;
-  backdrop-filter: none;
-}
-
-.home_page .logo {
-  transition: opacity 0.3s ease;
-}
-
-.home_page .header_inner {
-  max-width: 118rem;
-  min-height: 7.2rem;
-  padding: 1.2rem 2rem;
-}
-
-.header_actions {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 4rem;
-  height: 4rem;
-  background: rgba(23, 27, 32, 0.18);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(23, 27, 32, 0.12);
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 0.6rem;
-  transition: background 0.3s;
-}
-
-.hamburger:hover {
-  background: rgba(23, 27, 32, 0.28);
-}
-
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
+/* ホームページではナビ文字を白に（背景が暗い画像のため） */
 .home_page .nav {
   align-items: center;
   gap: 2.8rem;
@@ -176,6 +135,7 @@ body.home_page {
   color: #fff;
 }
 
+/* 「事業内容」「お問い合わせ」は黒・太字で目立たせる */
 .home_page .nav_menu {
   color: black;
   font-weight: bold;
@@ -185,14 +145,71 @@ body.home_page {
   background: rgba(23, 27, 32, 0.28);
 }
 
-.home_hero {
-  position: relative;
-  min-height: 92vh;
-  overflow: hidden;
-  color: #fff;
-  background: #20262d;
+/* ┌─────────────────────────────────────────┐
+   │ ハンバーガーメニュー                       │
+   └─────────────────────────────────────────┘ */
+
+.header_actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
+/* <span> 3つが CSS で横線に見える。backdrop-filter でガラス感を演出 */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 4rem;
+  height: 4rem;
+  background: rgba(23, 27, 32, 0.18);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0.6rem;
+  transition: background 0.3s;
+}
+
+.hamburger:hover {
+  background: rgba(23, 27, 32, 0.28);
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px; /* 横線の太さ */
+  background: var(--ink);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ┌─────────────────────────────────────────┐
+   │ body 背景（ホームページ専用グリッド）        │
+   └─────────────────────────────────────────┘ */
+
+/* 縦横48pxのグリッド線を薄く引いた紙のような背景 */
+body.home_page {
+  background: linear-gradient(90deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), linear-gradient(0deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), #f6f2ec;
+  background-size: 48px 48px;
+  color: var(--ink);
+  font-family: var(--font-ja);
+}
+
+/* ┌─────────────────────────────────────────┐
+   │ ヒーローセクション                         │
+   └─────────────────────────────────────────┘ */
+
+.home_hero {
+  position: relative; /* 子要素を absolute で重ねるための基準点 */
+  min-height: 92vh;
+  overflow: hidden; /* スライド画像がはみ出ないよう切り取る */
+  color: #fff;
+  background: #20262d; /* 画像が読み込まれるまで表示される暗い下地色 */
+}
+
+/* 左から右に向かって暗くなるグラデーション。テキストを読みやすくする */
 .home_hero::after {
   content: "";
   position: absolute;
@@ -201,18 +218,20 @@ body.home_page {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
 }
 
+/* スライド画像をセクション全体に敷くラッパー */
 .home_hero_media {
   position: absolute;
   inset: 0;
 }
 
+/* 3枚のスライドが animation-delay でずれながら順番にフェードイン・アウトを繰り返す */
 .home_hero_slide {
   position: absolute;
   inset: 0;
   background-position: center;
   background-size: cover;
-  opacity: 0;
-  transform: scale(1.04);
+  opacity: 0; /* 最初は透明。アニメーションで表示 */
+  transform: scale(1.04); /* 少し大きく始めてゆっくり縮むとリッチに見える */
   animation: home_hero_crossfade 18s infinite;
   filter: saturate(0.95) contrast(1.04);
 }
@@ -224,16 +243,17 @@ body.home_page {
 
 .home_hero_slide_2 {
   background-image: url("../img/同じほうこうをむいているIT.png");
-  animation-delay: 6s;
-  filter: brightness(1.2) saturate(0.95) contrast(1.04);
+  animation-delay: 6s; /* 6秒後に表示開始 */
+  filter: brightness(1.2) saturate(0.95) contrast(1.04); /* 暗めの写真を明るく補正 */
 }
 
 .home_hero_slide_3 {
   background-image: url("../img/軽作業風景_AI.png");
-  animation-delay: 12s;
+  animation-delay: 12s; /* 12秒後に表示開始 */
   filter: brightness(1.2) saturate(0.95) contrast(1.04);
 }
 
+/* 0%〜8%: 出てくる / 8%〜30%: 表示中 / 40%〜: 消える */
 @keyframes home_hero_crossfade {
   0% {
     opacity: 0;
@@ -250,6 +270,7 @@ body.home_page {
   }
 }
 
+/* テキスト類は z-index: 2 でオーバーレイ（::after）より前面に出す */
 .home_hero_inner {
   position: relative;
   z-index: 2;
@@ -261,6 +282,11 @@ body.home_page {
   padding: 13rem 0 16rem;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ キッカー（小見出しラベル）                  │
+   └─────────────────────────────────────────┘ */
+
+/* 「Work Support」「About us」などの小さいラベル。左に銅色の縦線が入る */
 .home_kicker {
   margin: 0 0 1.6rem;
   border-left: 3px solid var(--copper);
@@ -273,23 +299,29 @@ body.home_page {
   text-transform: uppercase;
 }
 
+/* ヒーロー内のキッカーは白・透明から始まりフェードイン */
 .home_hero .home_kicker {
   color: rgba(255, 255, 255, 0.78);
   opacity: 0;
   animation: home_fade_in 0.8s ease-out 0.3s forwards;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ ヒーロータイトルとアニメーション             │
+   └─────────────────────────────────────────┘ */
+
 .home_hero_title {
   max-width: 96rem;
   margin: 0;
   color: #fff;
-  font-family: var(--font-title);
+  font-family: var(--font-title); /* 明朝体で高級感を出す */
   font-size: 6.8rem;
   font-weight: 600;
   line-height: 1.24;
   letter-spacing: 0;
 }
 
+/* <span> 1行ずつ animation-delay をずらして左からスライドインしてくる */
 .home_hero_title span {
   display: block;
   opacity: 0;
@@ -297,34 +329,28 @@ body.home_page {
   animation: home_fade_in 0.9s ease-out forwards;
 }
 
-.home_hero_title span:nth-child(1) {
-  animation-delay: 0.45s;
-}
+.home_hero_title span:nth-child(1) { animation-delay: 0.45s; }
+.home_hero_title span:nth-child(2) { animation-delay: 0.7s; }
+.home_hero_title span:nth-child(3) { animation-delay: 0.95s; }
 
-.home_hero_title span:nth-child(2) {
-  animation-delay: 0.7s;
-}
-
-.home_hero_title span:nth-child(3) {
-  animation-delay: 0.95s;
-}
-
+/* 「確かな仕事へ」に引かれるオレンジ下線。background-size が 0% → 100% に伸びる */
 .home_marker {
   display: inline;
   font-style: normal;
   background-image: linear-gradient(to right, rgba(216, 111, 69, 0.5), rgba(216, 111, 69, 0.5));
   background-repeat: no-repeat;
   background-size: 0% 0.28em;
-  background-position: left 84%;
+  background-position: left 84%; /* テキストの下に線が来る位置 */
   animation: home_marker_draw 1.2s ease-out 1.5s forwards;
 }
 
 @keyframes home_marker_draw {
   to {
-    background-size: 100% 0.28em;
+    background-size: 100% 0.28em; /* 横幅を0%→100%に広げることで線が伸びて見える */
   }
 }
 
+/* リード文・ボタンも同じフェードインで遅れて表示 */
 .home_hero_text {
   max-width: 62rem;
   margin: 3rem 0 0;
@@ -346,12 +372,17 @@ body.home_page {
   animation: home_fade_in 0.8s ease-out 1.55s forwards;
 }
 
+/* opacity と transform を同時にリセット（透明・ずれ → 表示・元の位置） */
 @keyframes home_fade_in {
   to {
     opacity: 1;
     transform: none;
   }
 }
+
+/* ┌─────────────────────────────────────────┐
+   │ ボタン                                   │
+   └─────────────────────────────────────────┘ */
 
 .home_button {
   display: inline-flex;
@@ -370,7 +401,7 @@ body.home_page {
 }
 
 .home_button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* ホバーで少し浮き上がる */
 }
 
 .home_button_primary {
@@ -378,11 +409,17 @@ body.home_page {
   color: var(--ink);
 }
 
+/* 枠線だけで中が透明なゴーストボタン */
 .home_button_ghost {
   border-color: rgba(255, 255, 255, 0.42);
   color: #fff;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ ヒーローパネル（右下の情報ボックス）          │
+   └─────────────────────────────────────────┘ */
+
+/* position: absolute で画像右下に重ねて配置。スマホでは非表示になる */
 .home_hero_panel {
   position: absolute;
   right: 0;
@@ -396,6 +433,7 @@ body.home_page {
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
 }
 
+/* 現在使っているのはこちらの2列バージョン */
 .home_hero_panel_two {
   grid-template-columns: repeat(2, minmax(16rem, 1fr));
   width: min(48rem, 46vw);
@@ -430,6 +468,11 @@ body.home_page {
   line-height: 1.5;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ セクション共通スタイル                     │
+   └─────────────────────────────────────────┘ */
+
+/* 最大幅を決めて中央寄せ。calc(100% - 4rem) で左右に最低2remの余白を確保 */
 .home_section {
   width: min(118rem, calc(100% - 4rem));
   margin: 0 auto;
@@ -441,7 +484,7 @@ body.home_page {
   margin-bottom: 4rem;
 }
 
-/* faqセクションの「よくあるご質問」のみ、下の余白をなくす  */
+/* faqセクションの「よくあるご質問」h2 の下余白をなくす（画像が続くため）  */
 .home_section_head h2:nth-child(2) {
   margin-bottom: 0rem;
   padding-bottom: 0rem;
@@ -455,6 +498,7 @@ body.home_page {
   line-height: 2;
 }
 
+/* 各セクションの大見出し共通スタイル（明朝体・大きめ） */
 .home_section h2,
 .home_work h2,
 .home_contact h2 {
@@ -466,6 +510,11 @@ body.home_page {
   letter-spacing: 0;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ About セクション                          │
+   └─────────────────────────────────────────┘ */
+
+/* 画像（左）とテキスト（右）を grid で横並び。0.9fr / 1.1fr で微妙に非対称にしている */
 .home_about_grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -475,7 +524,7 @@ body.home_page {
 
 .home_about_image {
   position: relative;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 16 / 11; /* 画像の縦横比を固定 */
   overflow: hidden;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
 }
@@ -501,13 +550,18 @@ body.home_page {
 
 .home_about_body h2 {
   margin-bottom: 1.2rem;
-  text-wrap: balance;
+  text-wrap: balance; /* 見出しの行末が揃ってバランスよく折り返される */
 }
 
 .home_section_head h2 {
   margin-bottom: 2rem;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ スクロールアニメーション（js_soft_reveal）   │
+   └─────────────────────────────────────────┘ */
+
+/* 初期状態は透明・少し下にずれている。script.js が is_visible を付けたら表示 */
 .js_soft_reveal {
   opacity: 0;
   transform: translateY(2rem);
@@ -521,6 +575,7 @@ body.home_page {
   transform: none;
 }
 
+/* About の画像は scale もつけて少し拡大→縮小する演出を追加 */
 .home_about_image.js_soft_reveal {
   transform: translateY(2rem) scale(1.025);
   filter: brightness(0.94);
@@ -535,6 +590,10 @@ body.home_page {
   filter: brightness(1);
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ サービスカード（軽作業・IT業務）             │
+   └─────────────────────────────────────────┘ */
+
 .home_service_columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -542,27 +601,28 @@ body.home_page {
   margin-bottom: 7.2rem;
 }
 
+/* grid-template-rows で「画像エリア固定 + テキストは残り全部」の構成 */
 .home_service_feature {
   display: grid;
   grid-template-rows: 30rem 1fr;
-  border-radius: 0 90px 0 0;
+  border-radius: 0 90px 0 0; /* 右上だけ丸くしてデザインのアクセントに */
   background: rgba(255, 255, 255, 0.78);
   overflow: hidden;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  outline: 0.1px solid grey;
+  outline: 0.1px solid grey; /* box-shadow だけだと隙間が出るので細い枠で補完 */
 }
 
 .home_service_feature:hover {
-  transform: translateY(-0.6rem);
+  transform: translateY(-0.6rem); /* ホバーで浮き上がる */
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.06);
 }
 
 .home_service_feature_image {
   overflow: hidden;
-  background: #d8d8d8;
+  background: #d8d8d8; /* 画像読み込み前のプレースホルダー色 */
 }
 
 .home_service_feature_image img {
@@ -572,6 +632,7 @@ body.home_page {
   transition: transform 0.5s ease;
 }
 
+/* ホバーで画像を少し拡大してズームインの演出 */
 .home_service_feature:hover .home_service_feature_image img {
   transform: scale(1.04);
 }
@@ -580,6 +641,7 @@ body.home_page {
   padding: 2.2rem;
 }
 
+/* 「01」「02」の番号ラベル（ピル型バッジ）*/
 .home_service_feature_body > span {
   display: inline-grid;
   place-items: center;
@@ -595,6 +657,7 @@ body.home_page {
   position: relative;
 }
 
+/* IT業務カード（warm）は番号ラベルをオレンジに変える */
 .home_service_feature_warm .home_service_feature_body > span {
   background: var(--copper);
 }
@@ -612,25 +675,37 @@ body.home_page {
   line-height: 1.9;
 }
 
+/* 補足テキストに左ボーダーで引用風の見た目を付ける */
 .home_service_feature_note {
   margin-top: 1.4rem !important;
-  border-left: 3px solid rgba(58, 107, 94, 0.32);
+  border-left: 3px solid rgba(58, 107, 94, 0.33);
   padding-left: 1.2rem;
   color: #4c555d !important;
   font-size: 1.35rem !important;
 }
 
 .home_service_feature_warm .home_service_feature_note {
-  border-left-color: rgba(216, 111, 69, 0.36);
+  border-left-color: rgba(216, 111, 69, 0.36); /* warmカードは橙色ボーダー */
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ Work Scene（背景動画エリア）               │
+   └─────────────────────────────────────────┘ */
+
+/*
+  レイヤー構造（下から上）:
+    z-index 0: <video> 背景動画
+    z-index 1: ::after グラデーションオーバーレイ
+    z-index 2: .home_work_inner テキスト
+*/
 .home_work {
   position: relative;
-  background: #0e3b34;
+  background: #0e3b34; /* 動画が読み込まれるまでの下地色 */
   color: #fff;
   overflow: hidden;
 }
 
+/* 動画をセクション全体に object-fit: cover で引き伸ばして敷く */
 .home_work_bg_video {
   position: absolute;
   inset: 0;
@@ -640,6 +715,7 @@ body.home_page {
   z-index: 0;
 }
 
+/* 動画の上に半透明の緑グラデーションをかぶせてテキストを読みやすくする */
 .home_work::after {
   content: "";
   position: absolute;
@@ -650,7 +726,7 @@ body.home_page {
 
 .home_work_inner {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* オーバーレイより前面に出す */
   display: grid;
   grid-template-columns: minmax(36rem, 0.88fr) minmax(0, 1.12fr);
   gap: 6rem;
@@ -668,7 +744,7 @@ body.home_page {
 }
 
 .home_work h2 {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* 暗い背景でも見出しを際立たせる影 */
 }
 
 .home_work_text p:not(.home_kicker) {
@@ -684,6 +760,7 @@ body.home_page {
   margin-top: 3.4rem;
 }
 
+/* 各ポイント（Support / Work / Quality）を横線で区切る */
 .home_work_points article {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   padding-top: 1.8rem;
@@ -707,6 +784,7 @@ body.home_page {
   line-height: 1.45;
 }
 
+/* ギャラリーグリッド（現在は非表示。将来使う想定で残しているスタイル） */
 .home_work_gallery {
   display: grid;
   grid-template-columns: 1fr 0.72fr;
@@ -733,19 +811,24 @@ body.home_page {
   transform: scale(1.04);
 }
 
+/* 1枚目だけ2行分の高さを使って大きく表示 */
 .home_work_gallery figure:first-child {
   grid-row: 1 / 3;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ フロー・タイムライン（利用までの流れ）        │
+   └─────────────────────────────────────────┘ */
+
 .home_flow_timeline {
   position: relative;
-  /*子要素（STEPカード）を縦に並べて、間に均等な隙間（1.4rem）を入れるため*/
   display: grid;
   gap: 1.4rem;
   max-width: 100rem;
   margin: 0 auto;
 }
 
+/* 縦線は ::before 疑似要素で描いている。scaleY(0→1) で上から伸びてくる演出 */
 .home_flow_timeline::before {
   content: "";
   position: absolute;
@@ -753,13 +836,14 @@ body.home_page {
   bottom: 0;
   left: -1.8rem;
   width: 2px;
-  background: rgba(58, 107, 94, 0.35);
+  background: rgba(58, 107, 94, 0.33);
   transform: scaleY(0);
-  transform-origin: top;
+  transform-origin: top; /* 上から伸びるようにする */
   transition: transform 2.2s ease-out 0.2s;
   border-radius: 2px;
 }
 
+/* js_soft_reveal と同じく、画面内に入ったら is_visible が付いて縦線が伸びる */
 .home_flow_timeline.is_visible::before {
   transform: scaleY(1);
 }
@@ -767,10 +851,10 @@ body.home_page {
 .home_flow_timeline article {
   position: relative;
   display: grid;
-  grid-template-columns: 25rem 1fr;
+  grid-template-columns: 25rem 1fr; /* アイコン幅固定 + テキスト可変 */
   gap: 0.3rem;
   align-items: center;
-  border: 1px solid rgba(23, 27, 32, 0.08);
+  border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.72);
   padding: 1rem 1rem;
@@ -781,6 +865,7 @@ body.home_page {
   padding-bottom: 2.4rem;
 }
 
+/* PNG アイコン。mix-blend-mode: multiply で白い背景を透過させる */
 .home_flow_icon {
   display: block;
   width: 100%;
@@ -791,6 +876,7 @@ body.home_page {
   mix-blend-mode: multiply;
 }
 
+/* <b> に CSS の content で "STEP " を自動追加。HTMLには数字だけ書けばいい */
 .home_flow_timeline b {
   display: block;
   font-family: var(--font-en);
@@ -805,24 +891,20 @@ body.home_page {
   content: "STEP ";
 }
 
-.home_flow_timeline article:nth-child(1),
-.home_flow_timeline article:nth-child(3) {
+/* 奇数ステップ（1・3）と偶数ステップ（2・4）で背景色を交互に変える */
+.home_flow_timeline article:nth-child(odd) {
   background: #edf6f2;
 }
 
-.home_flow_timeline article:nth-child(2),
-.home_flow_timeline article:nth-child(4) {
+.home_flow_timeline article:nth-child(even) {
   background: #f0f8f5;
 }
 
-.home_flow_timeline article:nth-child(2) b {
-  color: var(--copper);
+.home_flow_timeline article:nth-child(even) b {
+  color: var(--copper); /* 偶数ステップの番号はオレンジ */
 }
 
-.home_flow_timeline article:nth-child(4) b {
-  color: var(--copper);
-}
-
+/* 縦線上の丸い点も ::before 疑似要素で CSS だけで描いている */
 .home_flow_timeline article::before {
   content: "";
   position: absolute;
@@ -834,7 +916,7 @@ body.home_page {
   border-radius: 50%;
   background: rgba(58, 107, 94, 0.5);
   border: 1px solid #fff;
-  box-shadow: 0 0 0 2px rgba(58, 107, 94, 0.35);
+  box-shadow: 0 0 0 2px rgba(58, 107, 94, 0.33);
 }
 
 .home_flow_timeline h3 {
@@ -850,6 +932,10 @@ body.home_page {
   font-size: 1.55rem;
   line-height: 1.9;
 }
+
+/* ┌─────────────────────────────────────────┐
+   │ FAQ（よくあるご質問）                      │
+   └─────────────────────────────────────────┘ */
 
 .home_faq {
   padding-top: 8.8rem;
@@ -878,6 +964,7 @@ body.home_page {
   object-fit: contain;
 }
 
+/* FAQ のキッカーは「• Q&A •」という表記なので左ボーダーを外す */
 .home_faq .home_kicker {
   border-left: none;
   padding-left: 0;
@@ -890,10 +977,11 @@ body.home_page {
   margin: 0 auto;
 }
 
+/* <details> は HTML 標準のアコーディオン。JS なしで開閉できる */
 .home_faq_list details {
   position: relative;
   border: none;
-  border-bottom: 1px solid rgba(23, 27, 32, 0.12);
+  border-bottom: 1px solid var(--line);
   border-radius: 0;
   background: transparent;
   box-shadow: none;
@@ -901,9 +989,10 @@ body.home_page {
 }
 
 .home_faq_list details:first-child {
-  border-top: 1px solid rgba(23, 27, 32, 0.12);
+  border-top: 1px solid var(--line); /* 最初の項目だけ上にも線が必要 */
 }
 
+/* <summary> がクリックできる質問文の部分 */
 .home_faq_list summary {
   position: relative;
   cursor: pointer;
@@ -915,10 +1004,12 @@ body.home_page {
   list-style: none;
 }
 
+/* ブラウザ標準の▶マークを消す */
 .home_faq_list summary::-webkit-details-marker {
   display: none;
 }
 
+/* 「Q」バッジを ::before で左に配置 */
 .home_faq_list summary::before {
   content: "Q";
   position: absolute;
@@ -937,6 +1028,7 @@ body.home_page {
   place-items: center;
 }
 
+/* 右端の開閉矢印（∨ / ∧）を ::after で表示 */
 .home_faq_list summary::after {
   content: "∨";
   position: absolute;
@@ -948,6 +1040,7 @@ body.home_page {
   transition: transform 0.3s ease;
 }
 
+/* [open] 属性が付いたとき（開いた状態）に矢印を反転 */
 .home_faq_list details[open] summary::after {
   content: "∧";
   color: var(--green);
@@ -962,6 +1055,7 @@ body.home_page {
   position: relative;
 }
 
+/* 「A」バッジも同じく ::before で左に配置 */
 .home_faq_list p::before {
   content: "A";
   position: absolute;
@@ -979,6 +1073,11 @@ body.home_page {
   place-items: center;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ お問い合わせフォーム                       │
+   └─────────────────────────────────────────┘ */
+
+/* 緑のグラデーション背景（左上が明るく、右下が暗い） */
 .home_contact {
   background: linear-gradient(135deg, #2a7a66 0%, #0e3b34 100%);
   color: #fff;
@@ -986,7 +1085,7 @@ body.home_page {
 
 .home_contact_inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(34rem, 1.18fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(34rem, 1.18fr); /* 文章:フォーム = 約4:6 */
   gap: 5.6rem;
   align-items: start;
   width: min(118rem, calc(100% - 4rem));
@@ -1006,6 +1105,7 @@ body.home_page {
   line-height: 2;
 }
 
+/* backdrop-filter: blur で背景をぼかしてすりガラス風（glassmorphism） */
 .home_contact_form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1034,19 +1134,20 @@ body.home_page {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.94); /* 入力欄だけ白に近い背景 */
   padding: 1.2rem 1.3rem;
   color: var(--ink);
-  font: inherit;
+  font: inherit; /* フォントをページ全体と統一 */
   font-size: 1.45rem;
   outline: none;
 }
 
 .home_contact_form textarea {
-  resize: vertical;
+  resize: vertical; /* 横には広げられないよう縦方向のみ許可 */
   min-height: 13rem;
 }
 
+/* フォーカス時に白い枠と光彩を付けてどこを入力中かわかりやすくする */
 .home_contact_form input:focus,
 .home_contact_form select:focus,
 .home_contact_form textarea:focus {
@@ -1054,10 +1155,12 @@ body.home_page {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
 }
 
+/* テキストエリアだけ2列にまたがらせる */
 .home_contact_form_wide {
   grid-column: 1 / -1;
 }
 
+/* 送信ボタン。オレンジで目立たせる */
 .home_contact_form button {
   grid-column: 1 / -1;
   min-height: 5.4rem;
@@ -1079,12 +1182,17 @@ body.home_page {
   opacity: 0.92;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ フッター                                  │
+   └─────────────────────────────────────────┘ */
+
 .home_footer {
   background: rgba(255, 255, 255, 0.74);
   border-top: 1px solid var(--line);
   color: var(--muted);
 }
 
+/* ロゴ・会社情報・ナビ・CTAボタン の4カラム構成 */
 .home_footer_inner {
   display: grid;
   grid-template-columns: minmax(22rem, 0.9fr) minmax(24rem, 1fr) minmax(18rem, 0.72fr) auto;
@@ -1113,12 +1221,12 @@ body.home_page {
   margin: 0;
   color: var(--muted);
   font-size: 1.35rem;
-  font-style: normal;
+  font-style: normal; /* <address> タグのデフォルトイタリックを解除 */
   line-height: 1.9;
 }
 
 .home_footer_brand p + p {
-  margin-top: 1rem;
+  margin-top: 1rem; /* 同じ親の中で <p> が隣り合うときだけ上に余白 */
 }
 
 .home_footer_info h2 {
@@ -1139,6 +1247,7 @@ body.home_page {
   font-weight: 700;
 }
 
+/* 各リンクの前に「›」を CSS で自動追加 */
 .home_footer_nav a::before {
   content: "›";
   margin-right: 0.8rem;
@@ -1160,11 +1269,13 @@ body.home_page {
     background 0.3s ease;
 }
 
+/* color-mix で変数のまま少し暗くする（#値に直す必要がない） */
 .home_footer_action a:hover {
   transform: translateY(-2px);
   background: color-mix(in srgb, var(--green), black 15%);
 }
 
+/* 著作権表記エリア。プライバシーポリシーと横並び */
 .home_footer_bottom {
   display: flex;
   align-items: center;
@@ -1187,6 +1298,10 @@ body.home_page {
   color: var(--muted);
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ レスポンシブ（スマホ：700px以下）            │
+   └─────────────────────────────────────────┘ */
+
 @media screen and (max-width: 700px) {
   .logo {
     width: 13.2rem;
@@ -1196,13 +1311,14 @@ body.home_page {
     min-height: 6.4rem;
   }
 
+  /* スマホでは 100svh（アドレスバーを除いた実際の高さ）を使う */
   .home_hero,
   .home_hero_inner {
     min-height: 100svh;
   }
 
   .home_hero_inner {
-    align-content: end;
+    align-content: end; /* テキストを下寄せにしてパネルと重ならないようにする */
     padding: 10rem 0 24rem;
   }
 
@@ -1227,6 +1343,7 @@ body.home_page {
     font-size: 1.55rem;
   }
 
+  /* パネルはスマホでは邪魔になるので非表示 */
   .home_hero_panel_two {
     display: none;
   }
@@ -1236,6 +1353,7 @@ body.home_page {
     padding: 7.2rem 0;
   }
 
+  /* 横並びを全部1カラムに切り替え */
   .home_about_grid,
   .home_work_inner,
   .home_footer_inner,
@@ -1248,20 +1366,21 @@ body.home_page {
   }
 
   .home_button {
-    width: 100%;
+    width: 100%; /* ボタンを全幅にして押しやすくする */
   }
 
   .home_faq_list {
     margin-left: 0;
   }
 
+  /* ギャラリーをPC用の非対称グリッドから縦積みに変更 */
   .home_work_gallery {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 22rem);
   }
 
   .home_work_gallery figure:first-child {
-    grid-row: auto;
+    grid-row: auto; /* PCの「2行分」指定を解除 */
   }
 
   .home_contact_inner {
@@ -1269,19 +1388,21 @@ body.home_page {
   }
 
   .home_contact_form {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* フォームも1カラムに */
   }
 
   .home_flow_timeline {
     margin-left: 0;
   }
 
+  /* スマホではアイコン幅を小さくして縦長レイアウトに変更 */
   .home_flow_timeline article {
     grid-template-columns: 5.4rem 1fr;
     gap: 1.8rem;
     padding: 1.8rem;
   }
 
+  /* 縦線の位置をアイコン中央に合わせる */
   .home_flow_timeline::before {
     left: 2.7rem;
   }
@@ -1291,6 +1412,7 @@ body.home_page {
     height: 5.4rem;
   }
 
+  /* 著作権エリアを縦積みに */
   .home_footer_bottom {
     align-items: flex-start;
     flex-direction: column;
