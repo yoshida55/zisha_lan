@@ -217,7 +217,6 @@ a {
    │ body 背景（ホームページ専用グリッド）        │
    └─────────────────────────────────────────┘ */
 
-/* 縦横48pxのグリッド線を薄く引いた紙のような背景 */
 body.home_page {
   background: linear-gradient(90deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), linear-gradient(0deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), #f6f2ec;
   background-size: 48px 48px;
@@ -1002,13 +1001,9 @@ body.home_page {
   content: "STEP ";
 }
 
-/* 奇数ステップ（1・3）と偶数ステップ（2・4）で背景色を交互に変える */
-.home_flow_timeline article:nth-child(odd) {
-  background: #edf6f2;
-}
-
+.home_flow_timeline article:nth-child(odd),
 .home_flow_timeline article:nth-child(even) {
-  background: #f0f8f5;
+  background: #fff;
 }
 
 .home_flow_timeline article:nth-child(even) b {
