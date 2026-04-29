@@ -27,6 +27,10 @@
   --font-ja: "Noto Sans JP", sans-serif; /* 和文：本文全般 */
   --font-title: "Shippori Mincho", serif; /* 明朝体：大見出し・タイトル */
   --font-en: "Inter", sans-serif; /* 英字：英語キャプション・ラベル */
+
+  /* ── レイアウト ── */
+  --bridge-overlap: 18rem; /* セクション間カードの上下の重なり量 */
+  --section-pad: 12rem; /* 通常セクションの上下 padding */
 }
 
 body {
@@ -329,9 +333,15 @@ body.home_page {
   animation: home_fade_in 0.9s ease-out forwards;
 }
 
-.home_hero_title span:nth-child(1) { animation-delay: 0.45s; }
-.home_hero_title span:nth-child(2) { animation-delay: 0.7s; }
-.home_hero_title span:nth-child(3) { animation-delay: 0.95s; }
+.home_hero_title span:nth-child(1) {
+  animation-delay: 0.45s;
+}
+.home_hero_title span:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.home_hero_title span:nth-child(3) {
+  animation-delay: 0.95s;
+}
 
 /* 「確かな仕事へ」に引かれるオレンジ下線。background-size が 0% → 100% に伸びる */
 .home_marker {
@@ -505,7 +515,7 @@ body.home_page {
 }
 
 /* ┌─────────────────────────────────────────┐
-   │ About セクション                          │
+   │ about us セクション　左に女性指導員　右に会社の概要                          │
    └─────────────────────────────────────────┘ */
 
 /* 画像（左）とテキスト（右）を grid で横並び。0.9fr / 1.1fr で微妙に非対称にしている */
@@ -514,6 +524,7 @@ body.home_page {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 6.4rem;
   align-items: center;
+  padding-bottom: 10rem;
 }
 
 .home_about_image {
@@ -585,8 +596,64 @@ body.home_page {
 }
 
 /* ┌─────────────────────────────────────────┐
+   │ About → サービスカード（軽作業・IT業務）  橋渡し（緑の斜め帯）    │
+   └─────────────────────────────────────────┘ */
+
+/* 高さだけ確保する箱。overflow: visible で画像が上にはみ出せる */
+.home_bridge {
+  position: relative;
+  overflow: visible;
+  height: 18rem;
+  z-index: 1;
+}
+
+/* ::before で緑の斜め背景を作る　ここでクリップパスを指定
+しないと背景の画像（home_bridge_image）まで削除してしまうので
+（clip-path で斜めに切り取り） */
+.home_bridge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(58, 107, 94, 0.4);
+  clip-path: polygon(0 5rem, 100% 0%, 100% 100%, 0 100%);
+}
+
+/*セクションにまたがる画像*/
+.home_bridge_image {
+  position: absolute;
+
+  top: -10rem;
+  right: 15rem;
+
+  width: 37%;
+  height: 30rem;
+
+  border-radius: 1rem;
+
+  /* 直接画像を指定しない理由は、再度にあるバーを隠すため➡画像を綺麗にする*/
+  background-image: url(../img/背景画像用３人がデスクで話す_私服.png);
+  background-position: center;
+  background-size: cover;
+
+  z-index: 2;
+}
+
+/* ┌─────────────────────────────────────────┐
    │ サービスカード（軽作業・IT業務）             │
    └─────────────────────────────────────────┘ */
+
+/*セクション全体のカラーを設定*/
+.home_services_wrap {
+  background-color: rgba(58, 107, 94, 0.4);
+  position: relative;
+  z-index: 0;
+  height: 110rem;
+  padding-bottom: var(--bridge-overlap); /* service_bridge の margin-top: -20rem 分を確保 */
+}
+
+.home_services {
+  padding-bottom: 0;
+}
 
 .home_service_columns {
   display: grid;
@@ -683,6 +750,56 @@ body.home_page {
 }
 
 /* ┌─────────────────────────────────────────┐
+   │  Services(軽作業とIT業務の画像)とWork Scene(背景動画エリア) 橋渡し                   │
+   └─────────────────────────────────────────┘ */
+
+.service_bridge {
+  position: relative;
+  overflow: hidden;
+  background: #1a2d26; /* --green を暗くした深い森緑 */
+  border-radius: 2.4rem;
+  margin: -18rem 4rem; /* 上下に重なる。左右はページ端から少し内側 */
+  padding: 4rem 6rem;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.8rem;
+}
+
+/* 背景にうっすら大きなアルファベット（hrdxのNEWSと同じ手法） */
+.service_bridge::before {
+  content: "CONSULT";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-en);
+  font-size: 10rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.1em;
+}
+
+.service_bridge_lead {
+  font-family: "Shippori Mincho", serif;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.service_bridge_text {
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ┌─────────────────────────────────────────┐
    │ Work Scene（背景動画エリア）               │
    └─────────────────────────────────────────┘ */
 
@@ -693,7 +810,10 @@ body.home_page {
     z-index 2: .home_work_inner テキスト
 */
 .home_work {
+  margin-top: calc(-1 * var(--bridge-overlap));
   position: relative;
+  z-index: 1;
+  height: 110rem;
   background: #0e3b34; /* 動画が読み込まれるまでの下地色 */
   color: #fff;
   overflow: hidden;
@@ -726,7 +846,7 @@ body.home_page {
   gap: 6rem;
   width: min(118rem, calc(100% - 4rem));
   margin: 0 auto;
-  padding: 7.2rem 0;
+  padding: calc(var(--bridge-overlap) + 14rem) 0 5rem; /* 上：bridge重なり分＋通常余白 */
 }
 
 .home_work_text {

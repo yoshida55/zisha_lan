@@ -139,10 +139,14 @@
             <h2>一人ひとりに合った、働く場所がここにあります。</h2>
             <p>私たちは、軽作業・IT業務を通じて、一人ひとりが自分のペースで働く経験を重ねられる就労継続支援事業所です。得意なことや不安なことを一緒に確認しながら、無理のない形で仕事に向き合えるよう支援します。</p>
             <p>「まず見学だけしたい」「どんな仕事があるか知りたい」そんな段階からでも、気軽にご相談ください。</p>
-            <a href="#contact" class="home_button home_button_primary">まず見学の相談をする</a>
           </div>
         </div>
       </section>
+
+      <!-- About → Services 橋渡し -->
+      <div class="home_bridge" aria-hidden="true">
+        <div class="home_bridge_image"></div>
+      </div>
 
       <!-- ========== サービスセクション ========== -->
       <!--
@@ -151,36 +155,48 @@
         ラベルの色がオレンジ（copper）になる。
         CSS の grid-template-rows で「画像エリアの高さ固定 + テキストは残りを埋める」構成。
       -->
-      <section class="home_section home_services" id="service">
-        <div class="home_section_head js_soft_reveal">
-          <p class="home_kicker">Services</p>
-          <h2>軽作業とIT業務、2つの仕事があります。</h2>
-        </div>
-        <div class="home_service_columns">
-          <article class="home_service_feature js_soft_reveal">
-            <div class="home_service_feature_image">
-              <img src="img/軽作業風景(ChatGpt_机の上で作業).png" alt="軽作業をしている様子" />
-            </div>
-            <div class="home_service_feature_body">
-              <span>01</span>
-              <h3>軽作業</h3>
-              <p>封入、検品、仕分け、梱包など、手を動かしながら取り組める仕事です。確認を重ねながら、一つひとつ丁寧に進めます。</p>
-              <p class="home_service_feature_note">小ロットのご相談や、継続的な作業にも内容に合わせて対応します。</p>
-            </div>
-          </article>
-          <article class="home_service_feature home_service_feature_warm js_soft_reveal">
-            <div class="home_service_feature_image">
-              <img src="img/同じほうこうをむいているIT.png" alt="IT業務に取り組む様子" />
-            </div>
-            <div class="home_service_feature_body">
-              <span>02</span>
-              <h3>IT業務</h3>
-              <p>Web制作、ページ更新、データ入力、画像整理など、パソコンを使った仕事です。得意や関心に合わせて、少しずつ経験を広げていきます。</p>
-              <p class="home_service_feature_note">作業手順を確認しながら、日々の更新作業や運用補助もご相談いただけます。</p>
-            </div>
-          </article>
-        </div>
-      </section>
+      <div class="home_services_wrap">
+        <section class="home_section home_services" id="service">
+          <div class="home_section_head js_soft_reveal">
+            <p class="home_kicker">Services</p>
+            <h2>軽作業とIT業務、2つの仕事があります。</h2>
+          </div>
+          <div class="home_service_columns">
+            <article class="home_service_feature js_soft_reveal">
+              <div class="home_service_feature_image">
+                <img src="img/軽作業風景(ChatGpt_机の上で作業).png" alt="軽作業をしている様子" />
+              </div>
+              <div class="home_service_feature_body">
+                <span>01</span>
+                <h3>軽作業</h3>
+                <p>封入、検品、仕分け、梱包など、手を動かしながら取り組める仕事です。確認を重ねながら、一つひとつ丁寧に進めます。</p>
+                <p class="home_service_feature_note">小ロットのご相談や、継続的な作業にも内容に合わせて対応します。</p>
+              </div>
+            </article>
+            <article class="home_service_feature home_service_feature_warm js_soft_reveal">
+              <div class="home_service_feature_image">
+                <img src="img/同じほうこうをむいているIT.png" alt="IT業務に取り組む様子" />
+              </div>
+              <div class="home_service_feature_body">
+                <span>02</span>
+                <h3>IT業務</h3>
+                <p>Web制作、ページ更新、データ入力、画像整理など、パソコンを使った仕事です。得意や関心に合わせて、少しずつ経験を広げていきます。</p>
+                <p class="home_service_feature_note">作業手順を確認しながら、日々の更新作業や運用補助もご相談いただけます。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <!-- Services(軽作業とIT業務の画像)とWork Scene(背景動画エリア) 橋渡し -->
+      <div class="service_bridge">
+        <p class="service_bridge_lead">まだ決めていなくても、大丈夫です。</p>
+        <p class="service_bridge_text">
+          見学だけでも、話を聞くだけでも。<br />
+          一人で悩まず、気軽に相談してください。
+        </p>
+        <a href="#contact" class="home_button home_button_primary">まず見学の相談をする</a>
+      </div>
 
       <!-- ========== Work Scene セクション（背景動画エリア） ========== -->
       <!--
