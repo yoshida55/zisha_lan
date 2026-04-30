@@ -108,11 +108,6 @@ a {
    │ ナビゲーション                            │
    └─────────────────────────────────────────┘ */
 
-.nav {
-  display: flex;
-  gap: 2.4rem;
-}
-
 .nav_link {
   font-size: 0.9rem;
   color: var(--muted);
@@ -125,11 +120,6 @@ a {
 }
 
 /* ホームページではナビ文字を白に（背景が暗い画像のため） */
-.home_page .nav {
-  align-items: center;
-  gap: 2.8rem;
-}
-
 .home_page .nav_link {
   color: rgba(255, 255, 255, 0.82);
   font-size: 1.35rem;
@@ -144,7 +134,6 @@ a {
   color: var(--ink);
   font-weight: bold;
 }
-
 
 /* お問い合わせCTAボタン */
 .nav_cta {
@@ -228,6 +217,7 @@ body.home_page {
   │ ヒーローセクション                         │
    └─────────────────────────────────────────┘ */
 
+   
 .home_hero {
   position: relative; /* 子要素を absolute で重ねるための基準点 */
   min-height: 92vh;
@@ -247,11 +237,14 @@ body.home_page {
 
 /* ヒーロー背景動画（2本共通） */
 .home_hero_bg_video {
+  display: block;
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  transform: scale(1.11); /* 動画のサイズが会わないので強制的に広げる */
   z-index: 0;
   transition: opacity 1s ease;
 }
@@ -261,14 +254,12 @@ body.home_page {
   opacity: 0;
 }
 
-
 /* テキスト類は z-index: 2 でオーバーレイ（::after）より前面に出す */
 .home_hero_inner {
   position: relative;
   z-index: 2;
-  display: grid;
-  align-content: center;
-  width: min(118rem, calc(100% - 4rem));
+
+  width: 118rem;
   min-height: 92vh;
   margin: 0 auto;
   padding: 13rem 0 16rem;
@@ -382,6 +373,7 @@ body.home_page {
    │ ボタン                                   │
    └─────────────────────────────────────────┘ */
 
+/* ヒーローセクションのボタン(共通スタイル・２つの) */
 .home_button {
   display: inline-flex;
   align-items: center;
@@ -411,53 +403,6 @@ body.home_page {
 .home_button_ghost {
   border-color: rgba(255, 255, 255, 0.42);
   color: #fff;
-}
-
-/* ┌─────────────────────────────────────────┐
-   │ ヒーローパネル（右下の情報ボックス）          │
-   └─────────────────────────────────────────┘ */
-
-/* position: absolute で画像右下に重ねて配置。スマホでは非表示になる */
-.home_hero_panel {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(16rem, 1fr));
-  width: min(48rem, 46vw);
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--ink);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
-}
-
-.home_hero_panel div {
-  min-height: 11.6rem;
-  border-left: 1px solid var(--line);
-  padding: 2.2rem;
-}
-
-.home_hero_panel strong {
-  display: block;
-  font-family: var(--font-title);
-  font-size: 3.4rem;
-  line-height: 1;
-}
-
-.home_hero_panel span {
-  display: block;
-  margin-top: 1rem;
-  color: var(--ink);
-  font-size: 1.45rem;
-  font-weight: 700;
-}
-
-.home_hero_panel small {
-  display: block;
-  margin-top: 0.5rem;
-  color: var(--muted);
-  font-size: 1.15rem;
-  line-height: 1.5;
 }
 
 /* ┌─────────────────────────────────────────┐
@@ -784,24 +729,23 @@ body.home_page {
 
 /* 背景にうっすら大きなアルファベット（hrdxのNEWSと同じ手法） */
 .service_bridge::before {
-  content: "CONSULT";
+  content: "STEP";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 3%;
   font-family: var(--font-en);
-  font-size: 10rem;
+  font-size: 8rem;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.04);
+  color: rgba(58, 107, 94, 0.7);
   white-space: nowrap;
   pointer-events: none;
-  letter-spacing: 0.1em;
 }
 
 .service_bridge_lead {
   font-family: "Shippori Mincho", serif;
   font-size: 3rem;
   font-weight: 600;
+  padding-top: 3rem;
   letter-spacing: 0.03em;
   color: #fff;
 }
@@ -831,7 +775,6 @@ body.home_page {
   color: #fff;
   overflow: hidden;
 }
-
 
 /* 動画の上に半透明の緑グラデーションをかぶせてテキストを読みやすくする */
 .home_work::after {
@@ -865,7 +808,6 @@ body.home_page {
 .home_work_text.js_soft_reveal.is_visible {
   transform: none;
 }
-
 
 .home_work_text .home_kicker {
   color: rgba(255, 255, 255, 0.85);
@@ -912,7 +854,6 @@ body.home_page {
   line-height: 1.45;
 }
 
-
 /* ┌─────────────────────────────────────────┐
    │ フロー・タイムライン（利用までの流れ）        │
    └─────────────────────────────────────────┘ */
@@ -926,7 +867,7 @@ body.home_page {
 .home_flow::before {
   content: "FLOW";
   top: 10rem;
-  left: -3rem;
+  left: 0rem;
   color: rgba(23, 27, 32, 0.05);
 }
 
@@ -1051,7 +992,6 @@ body.home_page {
 .home_faq .home_section_head {
   text-align: center;
 }
-
 
 .home_flow .home_section_head {
   text-align: left;
@@ -1460,11 +1400,6 @@ body.home_page {
     font-size: 1.55rem;
   }
 
-  /* パネルはスマホでは邪魔になるので非表示 */
-  .home_hero_panel {
-    display: none;
-  }
-
   .home_section,
   .home_work_inner {
     padding: 7.2rem 0;
@@ -1488,16 +1423,6 @@ body.home_page {
 
   .home_faq_list {
     margin-left: 0;
-  }
-
-  /* ギャラリーをPC用の非対称グリッドから縦積みに変更 */
-  .home_work_gallery {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 22rem);
-  }
-
-  .home_work_gallery figure:first-child {
-    grid-row: auto; /* PCの「2行分」指定を解除 */
   }
 
   .home_contact_inner {
