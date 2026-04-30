@@ -22,7 +22,8 @@
       "Bash(\"C:\\\\Users\\\\sensh\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\code.exe\" \"D:/50_knowledge/00_mis_log.md:185\")",
       "Bash(cmd /c \"code -g D:/50_knowledge/00_mis_log.md:185\")",
       "Bash(cmd /c code -g \"D:/50_knowledge/00_mis_log.md:185\")",
-      "Bash(cmd /c code \"D:/50_knowledge/00_mis_log.md\")"
+      "Bash(cmd /c code \"D:/50_knowledge/00_mis_log.md\")",
+      "WebFetch(domain:hrdx.jp)"
     ],
     "additionalDirectories": [
       "D:\\01_AI\\10_Python\\00_Python_src\\99_commit\\84_auto-memo補助MCPツール"
