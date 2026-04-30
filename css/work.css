@@ -415,12 +415,6 @@ body.home_page {
   padding: 12rem 0;
 }
 
-/* faqセクションの「よくあるご質問」h2 の下余白をなくす（画像が続くため）  */
-.home_section_head h2:nth-child(2) {
-  margin-bottom: 0rem;
-  padding-bottom: 0rem;
-}
-
 .home_section_lead {
   max-width: 69rem;
   margin: 0 auto;
@@ -477,7 +471,7 @@ body.home_page {
 .home_about_grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 6.4rem;
+  gap: 4rem;
   align-items: center;
   padding-bottom: 2rem;
 }
@@ -486,6 +480,7 @@ body.home_page {
   position: relative;
   aspect-ratio: 16 / 11; /* 画像の縦横比を固定 */
   overflow: hidden;
+  border-radius: 1.2rem;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.04);
 }
 
@@ -511,6 +506,7 @@ body.home_page {
 .home_about_body h2 {
   margin-bottom: 1.2rem;
   text-wrap: balance; /* 見出しの行末が揃ってバランスよく折り返される */
+  font-size: 5.2rem;
 }
 
 .home_section_head h2 {
@@ -1029,7 +1025,7 @@ body.home_page {
   padding-bottom: 9.6rem;
 }
 
-.home_faq .home_section_head {
+w.home_faq .home_section_head {
   text-align: center;
 }
 
@@ -1041,6 +1037,10 @@ body.home_page {
   margin: 0;
   padding-left: 0.5rem;
   margin-bottom: 4rem;
+}
+
+.home_section_head:nth-child(3) {
+  display: none;
 }
 
 .faq_img {
