@@ -108,6 +108,26 @@
 - 軽作業セクションの画像 → 動画（`軽作業風景_2.mp4`）に変更
 - 「支援のしくみ」セクション削除（ナビ・CSS・descriptionも含む）
 
+### work.css の追加調整
+- `.service_bridge`（STEPセクション）の背景色を `#1b2820` → `#141c17`（黒に近いチャコール）に変更
+- `.service_bridge_text` の透明度を `0.65` → `0.75` に上げて読みやすく
+
+### index.html の追加調整
+- About セクション h2 のフォントサイズを `5.2rem` → `4.6rem` に縮小（3行折り返し解消）
+- About セクション h2 の `<br>` を削除して `text-wrap: balance` に改行を任せる
+
+### business.css のリファクタリング
+- `width: min(var(--container), 100%)` → `max-width: var(--container)` に簡略化（2箇所）
+- `.business_hero_actions` の `animation-delay: 0.7s` 二重定義を削除
+- `.overview_flow_title` のハードコード色 `#0f6c30` → `var(--green)` に統一
+- コメント誤字「繰りっと」→「グリッド」修正
+- コメントアウトされたCSSルール削除
+- モバイルCSSの冗長記述を削除（ベースと同値の変数・プロパティ計6行）
+- セクションコメントの形式を `/* ====...==== */` → `/* ┌──...──┐ */` に統一（work.css と揃える）
+
+### business.html の追加調整
+- IT作業セクション h2 に `<br>` を追加して「少しずつ広げる。」を2行目に揃える
+
 ---
 
 ## 動画埋め込みの定石パターン
