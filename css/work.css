@@ -217,7 +217,6 @@ body.home_page {
   │ ヒーローセクション                         │
    └─────────────────────────────────────────┘ */
 
-   
 .home_hero {
   position: relative; /* 子要素を absolute で重ねるための基準点 */
   min-height: 92vh;
@@ -232,7 +231,7 @@ body.home_page {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(105deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.08) 100%);
+  background: linear-gradient(105deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.2) 55%, rgba(0, 0, 0, 0.08) 100%);
 }
 
 /* ヒーロー背景動画（2本共通） */
@@ -416,11 +415,6 @@ body.home_page {
   padding: 12rem 0;
 }
 
-.home_section_head {
-  max-width: 100%;
-  margin-bottom: 4rem;
-}
-
 /* faqセクションの「よくあるご質問」h2 の下余白をなくす（画像が続くため）  */
 .home_section_head h2:nth-child(2) {
   margin-bottom: 0rem;
@@ -451,6 +445,7 @@ body.home_page {
    │ about us セクション　左に女性指導員　右に会社の概要                          │
    └─────────────────────────────────────────┘ */
 
+/* homeでセクションをくぎっている　これは、アバウトセクションのトップ */
 .home_about {
   position: relative;
   overflow: hidden;
@@ -560,7 +555,7 @@ body.home_page {
   position: absolute;
   inset: 0;
   background-color: rgba(58, 107, 94, 0.4);
-  clip-path: polygon(0 5rem, 100% 0%, 100% 100%, 0 100%);
+  clip-path: polygon(0 8rem, 100% 0%, 100% 100%, 0 100%);
 }
 
 /*セクションにまたがる画像*/
@@ -588,6 +583,7 @@ body.home_page {
    └─────────────────────────────────────────┘ */
 
 /*セクション全体のカラーを設定*/
+/* homeでセクションをくぎっている　これは、アバウトセクションのトップ */
 .home_services_wrap {
   background-color: rgba(58, 107, 94, 0.4);
   position: relative;
@@ -756,6 +752,21 @@ body.home_page {
   color: rgba(255, 255, 255, 0.65);
 }
 
+/* service_bridge 内のボタンをヘッダーCTAと同じ緑ピル型に上書き */
+.service_bridge .home_button_primary {
+  background: var(--green);
+  color: #fff;
+  border-radius: 50px;
+  padding: 1.2rem 3rem;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.service_bridge .home_button_primary:hover {
+  background: color-mix(in srgb, var(--green), black 15%);
+}
+
 /* ┌─────────────────────────────────────────┐
    │ Work Scene（背景動画エリア）               │
    └─────────────────────────────────────────┘ */
@@ -774,6 +785,34 @@ body.home_page {
   background: #0e3b34 url("../img/軽作業風景手前に二人、後ろに３人(ChatGpt_机の上で作業).png") center / cover no-repeat;
   color: #fff;
   overflow: hidden;
+}
+
+.home_section a {
+  display: inline-block;
+  color: #fff;
+  object-fit: cover;
+}
+
+/* 親要素（タイトル（軽作業とIT作業～）とリードボタンを横並び） */
+.home_section_head {
+  max-width: 100%;
+  margin-bottom: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7rem;
+}
+
+.home_view_more {
+  display: inline-flex;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  background: var(--green);
+  color: #fff !important;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
 /* 動画の上に半透明の緑グラデーションをかぶせてテキストを読みやすくする */
@@ -866,11 +905,12 @@ body.home_page {
 
 .home_flow::before {
   content: "FLOW";
-  top: 10rem;
+  top: 12rem;
   left: 0rem;
   color: rgba(23, 27, 32, 0.05);
 }
 
+/* flowセクション全体の要素 */
 .home_flow_timeline {
   position: relative;
   display: grid;
@@ -885,12 +925,12 @@ body.home_page {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -1.8rem;
-  width: 2px;
+  left: -1.9rem;
+  width: 4px;
   background: rgba(58, 107, 94, 0.33);
   transform: scaleY(0);
   transform-origin: top; /* 上から伸びるようにする */
-  transition: transform 2.2s ease-out 0.2s;
+  transition: transform 3s ease-out 0.2s;
   border-radius: 2px;
 }
 
