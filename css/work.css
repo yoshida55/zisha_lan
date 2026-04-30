@@ -504,7 +504,7 @@ body.home_page {
 }
 
 .home_about_body h2 {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
   text-wrap: balance; /* 見出しの行末が揃ってバランスよく折り返される */
   font-size: 5.2rem;
 }
@@ -853,8 +853,9 @@ body.home_page {
 }
 
 .home_work h2 {
-  font-size: 3.6rem;
+  font-size: 4.3rem;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* 暗い背景でも見出しを際立たせる影 */
+  line-height: 1.4;
 }
 
 .home_work_text p:not(.home_kicker) {
