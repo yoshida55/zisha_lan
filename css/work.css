@@ -412,7 +412,7 @@ body.home_page {
 .home_section {
   width: min(118rem, calc(100% - 4rem));
   margin: 0 auto;
-  padding: 12rem 0;
+  padding: 10rem 0;
 }
 
 .home_section_lead {
@@ -473,7 +473,7 @@ body.home_page {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 4rem;
   align-items: center;
-  padding-bottom: 2rem;
+  padding-bottom: 14rem;
 }
 
 .home_about_image {
@@ -708,7 +708,7 @@ body.home_page {
   overflow: hidden;
   background: #1a2d26; /* --green を暗くした深い森緑 */
   border-radius: 2.4rem;
-  margin: -18rem 4rem; /* 上下に重なる。左右はページ端から少し内側 */
+  margin: -18rem 4rem 6rem; /* 上：サービスに食い込む / 左右：端から内側 / 下：work との余白 */
   padding: 4rem 6rem;
   z-index: 2;
   color: #fff;
@@ -789,11 +789,14 @@ body.home_page {
   object-fit: cover;
 }
 
-/* 親要素（タイトル（軽作業とIT作業～）とリードボタンを横並び） */
+/* 親要素（タイトル＋リードテキスト） */
 .home_section_head {
   max-width: 100%;
   margin-bottom: 4rem;
+}
 
+/* Servicesだけ：h2 と VIEW MORE ボタンを横並び */
+.home_services .home_section_head {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -1025,7 +1028,13 @@ body.home_page {
   padding-bottom: 9.6rem;
 }
 
-w.home_faq .home_section_head {
+.home_faq_head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home_faq .home_section_head {
   text-align: center;
 }
 
