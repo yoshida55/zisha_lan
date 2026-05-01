@@ -23,7 +23,8 @@
       "Bash(cmd /c \"code -g D:/50_knowledge/00_mis_log.md:185\")",
       "Bash(cmd /c code -g \"D:/50_knowledge/00_mis_log.md:185\")",
       "Bash(cmd /c code \"D:/50_knowledge/00_mis_log.md\")",
-      "WebFetch(domain:hrdx.jp)"
+      "WebFetch(domain:hrdx.jp)",
+      "WebFetch(domain:higgsfield.ai)"
     ],
     "additionalDirectories": [
       "D:\\01_AI\\10_Python\\00_Python_src\\99_commit\\84_auto-memo補助MCPツール"

@@ -814,6 +814,7 @@ em {
   position: relative;
 }
 
+/* クリップパスで台形の背景を作り出す　 */
 .voice_card_bg {
   position: absolute;
   inset: 0;

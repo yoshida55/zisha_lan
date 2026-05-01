@@ -20,11 +20,6 @@
 
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <!--
-      work.css がメインのスタイルシート。
-      reset.css → style.css → work.css の順に読まれるので、
-      後に書いたものが優先（上書き）される。
-    -->
     <link rel="stylesheet" href="css/work.css" />
   </head>
 
@@ -39,7 +34,7 @@
     <!--
       position: fixed で画面上部に固定。
       ホームページでは最初は透明（背景がヒーロー画像に溶け込む）になっていて、
-      スクロールすると script.js が "header_scrolled" クラスを付けて見た目を変える。
+      スクロールすると js が "header_scrolled" クラスを付けて見た目を変える。
     -->
     <header class="header">
       <div class="header_inner">
@@ -49,11 +44,7 @@
         <div class="header_actions">
           <a href="business.html" class="nav_link nav_menu">事業内容</a>
           <a href="#contact" class="nav_link nav_cta">お問い合わせ</a>
-          <!--
-            ハンバーガーボタン（三本線メニュー）
-            <span> 3つが CSS で横線に見える仕組み。
-            aria-label でスクリーンリーダーにも「メニューを開く」と伝えている。
-          -->
+          <!-- ハンバーガーボタン（三本線メニュー） まだ未実装-->
           <button class="hamburger" aria-label="メニューを開く">
             <span></span>
             <span></span>
@@ -67,9 +58,6 @@
       <!-- ========== ヒーローセクション ========== -->
       <!--
         トップのフルスクリーン画像エリア。
-        背景画像が3枚、自動でクロスフェード（じわっと切り替わる）するようになっている。
-        仕組みは CSS の @keyframes アニメーションで、
-        3枚の div が順番に opacity: 0 → 1 → 0 を繰り返している。
         テキストや画像より下のレイヤーにいるので aria-hidden="true" を付けて
         スクリーンリーダーには読み上げさせない。
       -->
@@ -276,7 +264,7 @@
         その下の <p> が開いたときに見える「回答」。
         CSS で Q / A アイコンや開閉の矢印（∨ ∧）を疑似要素で追加している。
       -->
-      <section class="home_section home_faq js_soft_reveal"" id="faq">
+      <section class="home_section home_faq js_soft_reveal" id="faq">
         <div class="home_faq_head ">
           <p class="home_kicker">• Q&A •</p>
           <h2>よくあるご質問</h2>
