@@ -789,7 +789,7 @@ em {
    │ 利用者の声　   voice_section                     │
    └─────────────────────────────────────────┘ */
 .voice_section {
-  background: linear-gradient(135deg, rgba(216, 111, 69, 0.04) 0%, transparent 38%), var(--paper);
+  background-color: rgba(58, 107, 94, 0.4);
   color: var(--ink);
   margin: 0 auto;
 }
@@ -808,7 +808,7 @@ em {
   box-shadow: 0 1.2rem 3rem rgba(23, 27, 32, 0.06);
 }
 
-/* カードの上の部分台形に切り抜いて写真を配置 */
+/* カードの上の部分 */
 .voice_photo_container {
   height: 23rem;
   position: relative;
@@ -822,7 +822,7 @@ em {
 }
 
 .voice_card_img {
-  position: absolute; /* 親基準で配置 */
+  position: absolute;
   width: 15.5rem;
   height: 15.5rem;
   border-radius: 50%;
@@ -830,8 +830,16 @@ em {
   right: 0; /* 右から */
   bottom: 0; /* 下から */
 }
+
+.voice_cart_massage {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
+/* カードの下の部分 */
 .voice_card_body {
-  margin-top: 1.6rem;
+  margin-top: 2rem;
 }
 .voice_card_comment {
   font-size: 2rem;
