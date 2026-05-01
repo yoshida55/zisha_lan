@@ -419,7 +419,7 @@ body.home_page {
 .home_section {
   width: min(118rem, calc(100% - 4rem));
   margin: 0 auto;
-  padding: 10rem 0;
+  padding: 11rem 0;
 }
 
 .home_section_lead {
