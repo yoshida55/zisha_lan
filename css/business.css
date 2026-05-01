@@ -786,6 +786,62 @@ em {
 }
 
 /* ┌─────────────────────────────────────────┐
+   │ 利用者の声　   voice_section                     │
+   └─────────────────────────────────────────┘ */
+.voice_section {
+  background: linear-gradient(135deg, rgba(216, 111, 69, 0.04) 0%, transparent 38%), var(--paper);
+  color: var(--ink);
+  margin: 0 auto;
+}
+
+.voice_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.voice_card {
+  padding: 3rem 2.4rem;
+  border: 1px solid var(--line);
+  border-radius: 2.4rem;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1.2rem 3rem rgba(23, 27, 32, 0.06);
+}
+
+/* カードの上の部分台形に切り抜いて写真を配置 */
+.voice_photo_container {
+  height: 23rem;
+  position: relative;
+}
+
+.voice_card_bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(23, 27, 32, 0.06);
+  clip-path: polygon(0 0, 80% 0, 20% 100%, 0 100%);
+}
+
+.voice_card_img {
+  position: absolute; /* 親基準で配置 */
+  width: 15.5rem;
+  height: 15.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  right: 0; /* 右から */
+  bottom: 0; /* 下から */
+}
+.voice_card_body {
+  margin-top: 1.6rem;
+}
+.voice_card_comment {
+  font-size: 2rem;
+}
+
+.voice_card_name {
+  margin-top: 1rem;
+}
+
+/* ┌─────────────────────────────────────────┐
    │ 1日の流れ（タイムライン）                  │
    └─────────────────────────────────────────┘ */
 .daily_section {
@@ -800,7 +856,7 @@ em {
   z-index: 1;
   width: min(var(--container), calc(100% - var(--gutter) * 2));
   margin: 0 auto;
-  padding: 11rem 0 7.2rem;
+  padding: 11rem 0 0;
 }
 
 .daily_head {
@@ -1002,6 +1058,15 @@ em {
   color: var(--muted);
   font-size: 1.32rem;
   line-height: 1.8;
+}
+
+.daily_message {
+  margin-top: 1.7rem;
+  color: var(--copper);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding-left: 17rem;
 }
 
 @keyframes daily_item-in {

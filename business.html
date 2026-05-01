@@ -142,7 +142,7 @@
       <section class="section service_section service_section_digital" id="digital-work" data-animate>
         <div class="section_head">
           <p class="section_label">IT作業</p>
-          <h2>パソコンで、できることを<br>少しずつ広げる。</h2>
+          <h2>パソコンで、できることを<br />少しずつ広げる。</h2>
           <p>Web制作やデータ入力など、画面の前で進める仕事にも取り組んでいます。手順書やチェックリストがあるので、はじめてでも安心です。</p>
         </div>
 
@@ -169,6 +169,34 @@
         </div>
       </section>
 
+      <!-- 利用者の声 ─ 3カード横並び。clip-pathは自分で追加 -->
+      <section class="section voice_section" id="voice" data-animate>
+        <div class="section_head">
+          <p class="section_label">利用者の声</p>
+          <h2>ここで、自分のペースを見つけました。</h2>
+          <p>リンクワークを利用されている方の声をご紹介します。</p>
+        </div>
+
+        <div class="voice_grid">
+          <!-- カード１ -->
+          <article class="voice_card">
+            <!-- 上の部分-->
+            <div class="voice_photo_container">
+              <div class="voice_card_bg"></div>
+              <img class="voice_card_img" src="img/利用者の声４０代男性１(背景あり).png" />
+            </div>
+            <!-- 下のメッセージ -->
+            <div class="voice_card_body">
+              <p class="voice_card_comment">最初は不安でしたが、スタッフが丁寧に教えてくれて、少しずつ自信がつきました。</p>
+              <p class="voice_card_name">Aさん（20代・IT作業担当）</p>
+            </div>
+          </article>
+          <!-- カード２ -->
+          <article class="voice_card"></article>
+          <!-- カード３ -->
+          <article class="voice_card"></article>
+        </div>
+      </section>
 
       <section class="daily_section" id="daily" data-animate>
         <div class="daily_inner">
@@ -180,30 +208,14 @@
 
           <ol class="daily_timeline" aria-label="WEB制作業務の一日の流れ">
             <li class="daily_item">
-              <time datetime="09:15">9:15</time>
+              <time datetime="09:30">9:30</time>
               <article class="daily_card daily_card_arrival">
                 <figure class="daily_card_media">
                   <img src="img/トップ画面（ITより）.png" alt="出勤後に利用するオフィスの様子" />
                 </figure>
                 <div class="daily_card_body">
-                  <h3>出勤</h3>
-                  <p>9:15までに来所し、身支度を整えて、仕事の準備をしておきます。 担当する作業をチャットや予定表で確認します。</p>
-                </div>
-              </article>
-            </li>
-            <li class="daily_item">
-              <time datetime="09:30">9:30</time>
-              <article class="daily_card daily_card_start">
-                <figure class="daily_card_media">
-                  <img src="img/デスク風景.png" alt="作業を始める前のデスクの様子" />
-                </figure>
-                <div class="daily_card_body">
-                  <h3>始業</h3>
-                  <p>朝礼で今日一日の予定が支援員より共有されます。 朝礼後はそれぞれの業務に入り、必要に応じて支援員がサポートします。</p>
-                  <div class="daily_memo">
-                    <strong>Memo：一般事務・軽作業の場合</strong>
-                    <p>データ入力、チラシ作成、封入、検品、梱包などを行います。</p>
-                  </div>
+                  <h3>朝礼</h3>
+                  <p>9:20までに来所し、身支度を整えて、仕事の準備をしておきます。 支援員から朝の報告をうけて、今日の予定を確認します。朝礼後はそれぞれの業務に入り、必要に応じて支援員がサポートします。</p>
                 </div>
               </article>
             </li>
@@ -211,11 +223,11 @@
               <time datetime="10:40">10:40</time>
               <article class="daily_card daily_card_work">
                 <figure class="daily_card_media">
-                  <img src="img/同じほうこうをむいているIT.png" alt="パソコンを使って作業している様子" />
+                  <img src="img/同じ方向をむいて作業している（席がまばら・一斉にストレッチ）.png" alt="パソコンを使って作業している様子" />
                 </figure>
                 <div class="daily_card_body">
                   <h3>午前の休憩</h3>
-                  <p>午前の休憩です。ストレッチなどして体をほぐして気持ちも体もリフレッシュ。</p>
+                  <p>午前の休憩・10分間の休憩があります。ストレッチなどして体をほぐして気持ちも体もリフレッシュ。</p>
                 </div>
               </article>
             </li>
@@ -232,30 +244,45 @@
               </article>
             </li>
             <li class="daily_item">
-              <time datetime="13:00">13:00</time>
+              <time datetime="12:45">12:45</time>
               <article class="daily_card daily_card_afternoon">
                 <figure class="daily_card_media">
                   <img src="img/IT作業風景.png" alt="午後もパソコン作業を進める様子" />
                 </figure>
                 <div class="daily_card_body">
-                  <h3>午後の作業</h3>
+                  <h3>作業開始</h3>
                   <p>午前中の続きや確認作業を進めます。 進捗を共有しながら、納品前のチェックや修正にも取り組みます。</p>
                 </div>
               </article>
             </li>
             <li class="daily_item">
-              <time datetime="15:00">15:00</time>
+              <time datetime="13:40">13:40</time>
               <article class="daily_card daily_card_review">
                 <figure class="daily_card_media">
-                  <img src="img/女性の就労支援員と就労者が相談している.png" alt="一日の作業を振り返っている様子" />
+                  <img src="img/同じ方向をむいて作業している（席がまばら・一斉にストレッチ）.png" alt="一日の作業を振り返っている様子" />
                 </figure>
                 <div class="daily_card_body">
-                  <h3>片付け・振り返り</h3>
-                  <p>作業内容を整理し、できたことや次回に続ける内容を確認します。 必要に応じて翌日の準備まで行います。</p>
+                  <h3>午後の休憩</h3>
+                  <p>5分間の休憩があります。あと少しで作業終了です。最後まで頑張りましょう。</p>
+                </div>
+              </article>
+            </li>
+            <li class="daily_item">
+              <time datetime="14:40">14:40</time>
+              <article class="daily_card daily_card_review">
+                <figure class="daily_card_media">
+                  <img src="img/同じ方向をむいて作業している（席がまばら・一斉にお辞儀）.png" alt="一日の作業を振り返っている様子" />
+                </figure>
+                <div class="daily_card_body">
+                  <h3>終礼</h3>
+                  <p>作業内容を整理し、できたことや次回に続ける内容を確認します。お疲れさまでした、本日終了です。</p>
                 </div>
               </article>
             </li>
           </ol>
+        </div>
+        <div class="daily_message">
+          <p>※施設外の就労によってはスケジュールが異なる場合があります。</p>
         </div>
       </section>
 
