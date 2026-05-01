@@ -568,12 +568,19 @@ em {
    └─────────────────────────────────────────┘ */
 .overview_section {
   margin: 0 auto;
-  padding: 0 0 7rem;
+  padding: 4rem 0 7rem;
+  background: linear-gradient(
+    to bottom,
+    #fafaf7 0,
+    var(--soft-green) 6rem,
+    var(--soft-green) calc(100% - 6rem),
+    #fff 100%
+  );
 }
 
 .overview_flow {
   position: relative;
-  background: var(--paper);
+  background: transparent;
   overflow: hidden;
   padding: 3.2rem 0 4rem;
 }
@@ -1077,26 +1084,26 @@ em {
 }
 
 /* スクロールで表示エリアに入ったら順番にフェードイン */
-.daily_section.is_visible .daily_item {
+.daily_inner.is_visible .daily_item {
   animation: daily_item-in 0.72s var(--ease) forwards;
 }
 
-.daily_section.is_visible .daily_item:nth-child(1) {
+.daily_inner.is_visible .daily_item:nth-child(1) {
   animation-delay: 0.1s;
 }
-.daily_section.is_visible .daily_item:nth-child(2) {
+.daily_inner.is_visible .daily_item:nth-child(2) {
   animation-delay: 0.18s;
 }
-.daily_section.is_visible .daily_item:nth-child(3) {
+.daily_inner.is_visible .daily_item:nth-child(3) {
   animation-delay: 0.26s;
 }
-.daily_section.is_visible .daily_item:nth-child(4) {
+.daily_inner.is_visible .daily_item:nth-child(4) {
   animation-delay: 0.34s;
 }
-.daily_section.is_visible .daily_item:nth-child(5) {
+.daily_inner.is_visible .daily_item:nth-child(5) {
   animation-delay: 0.42s;
 }
-.daily_section.is_visible .daily_item:nth-child(6) {
+.daily_inner.is_visible .daily_item:nth-child(6) {
   animation-delay: 0.5s;
 }
 
