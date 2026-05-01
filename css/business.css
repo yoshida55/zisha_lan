@@ -65,7 +65,7 @@ em {
   width: 100%;
   z-index: 100;
   border-bottom: 1px solid var(--line);
-  background: var(--bg, #fafaf7);
+  background: transparent;
   backdrop-filter: blur(12px);
 }
 
@@ -77,6 +77,18 @@ em {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  opacity: 0;
+  transform: translateY(-50rem);
+  animation: home_fade_in 2.4s ease-out forwards;
+}
+
+/* opacity と transform を同時にリセット（透明・ずれ → 表示・元の位置） */
+@keyframes home_fade_in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .logo {
@@ -118,13 +130,6 @@ em {
     background 0.3s ease,
     backdrop-filter 0.3s ease,
     box-shadow 0.3s ease;
-}
-
-/* スクロール後に帯を表示 */
-.home_page .header.header_scrolled {
-  background: rgba(250, 250, 247, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
 }
 
 /* 透明時はナビ文字を白に */
@@ -569,13 +574,7 @@ em {
 .overview_section {
   margin: 0 auto;
   padding: 4rem 0 7rem;
-  background: linear-gradient(
-    to bottom,
-    #fafaf7 0,
-    var(--soft-green) 6rem,
-    var(--soft-green) calc(100% - 6rem),
-    #fff 100%
-  );
+  background: linear-gradient(to bottom, #fafaf7 0, var(--soft-green) 6rem, var(--soft-green) calc(100% - 6rem), #fff 100%);
 }
 
 .overview_flow {

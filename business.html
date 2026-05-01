@@ -120,7 +120,7 @@
         </div>
 
         <div class="service_layout">
-          <figure class="service_media">
+          <figure class="service_media" aria-hidden="true">
             <video autoplay muted loop playsinline>
               <source src="img/軽作業風景_2.mp4" type="video/mp4" />
             </video>
@@ -363,35 +363,6 @@
       <small>&copy; LINKWORK. All Rights Reserved.</small>
     </footer>
 
-    <script>
-      (function () {
-        const header = document.querySelector("[data-header]");
-        const updateHeader = () => {
-          if (!header) return;
-          header.classList.toggle("is_scrolled", window.scrollY > 40);
-        };
-        updateHeader();
-        window.addEventListener("scroll", updateHeader, { passive: true });
-
-        const targets = document.querySelectorAll("[data-animate]");
-        if (!("IntersectionObserver" in window)) {
-          targets.forEach((target) => target.classList.add("is_visible"));
-          return;
-        }
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is_visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.14, rootMargin: "0px 0px -8% 0px" },
-        );
-        targets.forEach((target) => observer.observe(target));
-      })();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

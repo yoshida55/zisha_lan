@@ -49,19 +49,14 @@ a {
    │ ヘッダー                                 │
    └─────────────────────────────────────────┘ */
 
+/* ホームページだけ、最初は透明にして背景画像と一体化させる */
 .header {
   position: fixed; /* 画面上部に常に固定 */
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100; /* 他の要素より必ず前面に出す */
-  border-bottom: 1px solid var(--line);
-  background: var(--bg);
-  backdrop-filter: blur(12px); /* 背景をすりガラス風にぼかす */
-}
 
-/* ホームページだけ、最初は透明にして背景画像と一体化させる */
-.home_page .header {
   border-bottom: none;
   background: transparent;
   backdrop-filter: none;
@@ -69,13 +64,6 @@ a {
     background 0.3s ease,
     backdrop-filter 0.3s ease,
     box-shadow 0.3s ease;
-}
-
-/* スクロール後に帯を表示 */
-.home_page .header.header_scrolled {
-  background: rgba(250, 250, 247, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
 }
 
 .header_inner {
@@ -109,6 +97,10 @@ a {
   max-width: 118rem;
   min-height: 7.2rem;
   padding: 1.2rem 2rem;
+
+  opacity: 0;
+  transform: translateY(-70rem);
+  animation: home_fade_in 3.6s ease-out forwards;
 }
 
 /* ┌─────────────────────────────────────────┐
