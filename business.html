@@ -11,24 +11,28 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/business.css" />
   </head>
-  <body>
-    <header class="site_header" data-header>
-      <a class="site_logo" href="index.html" aria-label="株式会社リンクワーク トップページ">
-        <img src="img/ロゴ.png" alt="LinkWorks" />
-      </a>
-      <nav class="site_nav" aria-label="事業内容ナビゲーション">
-        <a href="index.html">ホーム</a>
-        <a href="#overview">事業の考え方</a>
-        <a href="#light-work">軽作業</a>
-        <a href="#digital-work">IT作業</a>
-        <a href="#daily">1日の流れ</a>
-      </nav>
-      <a class="header_contact" href="index.html#contact">
-        <span>見学・相談</span>
-      </a>
+  <body class="home_page">
+    <header class="header">
+      <div class="header_inner">
+        <a href="index.html" class="logo" aria-label="株式会社リンクワーク トップページ">
+          <img src="img/ロゴ.png" alt="LinkWorks" />
+        </a>
+        <div class="header_actions">
+          <a href="business.html" class="nav_link nav_menu">事業内容</a>
+          <a href="index.html#contact" class="nav_link nav_cta">お問い合わせ</a>
+          <button class="hamburger" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
     </header>
 
     <main>
+      <!-- ===============================================
+       メインビジュアル
+       =============================================== -->
       <section class="business_hero">
         <div class="business_hero_inner">
           <p class="section_label section_label_light">就労継続支援A型</p>
@@ -47,8 +51,11 @@
         </div>
       </section>
 
+      <!-- ===============================================
+       作業風景（横スクロール）セクション
+       =============================================== -->
       <section class="overview_section" id="overview" data-animate>
-        <div class="overview_flow" aria-label="リンクワークの作業風景">
+        <div class="overview_flow">
           <h3 class="overview_flow_title">作業風景</h3>
           <div class="overview_flow_ribbons" aria-hidden="true">
             <span></span>
@@ -100,6 +107,10 @@
         </div>
       </section>
 
+      <!-- ===============================================
+       軽作業　動画詳細セクション
+       =============================================== -->
+
       <section class="section service_section service_section_light" id="light-work" data-animate>
         <div class="section_head">
           <p class="section_label">軽作業</p>
@@ -138,12 +149,14 @@
           </div>
         </div>
       </section>
-
+      <!-- ===============================================
+       IT作業　動画詳細セクション
+       =============================================== -->
       <section class="section service_section service_section_digital" id="digital-work" data-animate>
         <div class="section_head">
           <p class="section_label">IT作業</p>
           <h2>パソコンで、できることを<br />少しずつ広げる。</h2>
-          <p>Web制作やデータ入力など、画面の前で進める仕事にも取り組んでいます。手順書やチェックリストがあるので、はじめてでも安心です。</p>
+          <p>Web制作やデータ入力など、画面の前で進める仕事にも取り組んでいます。実務の前に十分な研修期間があります。また支援員のサポートがありますので、はじめての方でも安心です。</p>
         </div>
 
         <div class="digital_layout">
@@ -169,11 +182,13 @@
         </div>
       </section>
 
-      <!-- 利用者の声 ─ 3カード横並び。clip-pathは自分で追加 -->
+      <!-- ===============================================
+      利用者の声 ─ 3カード横並び。clip-path  
+       =============================================== -->
       <section class="section voice_section" id="voice" data-animate>
         <div class="section_head">
           <p class="section_label">利用者の声</p>
-          <h2>ここで、自分のペースを見つけました。</h2>
+          <h2>ここで、自分のペースを<br />見つけました。</h2>
           <p>リンクワークを利用されている方の声をご紹介します。</p>
         </div>
 
@@ -225,7 +240,9 @@
           </article>
         </div>
       </section>
-
+      <!-- ===============================================
+       一日の流れ
+       =============================================== -->
       <section class="daily_section" id="daily" data-animate>
         <div class="daily_inner">
           <div class="daily_head">
@@ -314,6 +331,9 @@
         </div>
       </section>
 
+      <!-- ===============================================
+       CTAセクション
+       =============================================== -->
       <section class="cta_section" data-animate>
         <div class="cta_inner">
           <div>
