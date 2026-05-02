@@ -27,7 +27,8 @@
       "WebFetch(domain:higgsfield.ai)"
     ],
     "additionalDirectories": [
-      "D:\\01_AI\\10_Python\\00_Python_src\\99_commit\\84_auto-memo補助MCPツール"
+      "D:\\01_AI\\10_Python\\00_Python_src\\99_commit\\84_auto-memo補助MCPツール",
+      "D:\\Users\\sensh\\AppData\\Local\\Programs"
     ]
   }
 }
