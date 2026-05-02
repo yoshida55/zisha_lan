@@ -100,7 +100,7 @@ a {
 
   opacity: 0;
   transform: translateY(-70rem);
-  animation: home_fade_in 3.6s ease-out forwards;
+  animation: home_fade_in 3s ease-out forwards;
 }
 
 /* ┌─────────────────────────────────────────┐
