@@ -45,21 +45,7 @@ window.addEventListener("load", () => {
   }, DURATION);
 })();
 
-// スクロール出現アニメーション
-const io = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is_visible");
-        io.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 },
-);
-
-document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
+// スクロール出現アニメーション（ほぼすべての要素を対象）
 const softRevealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -69,10 +55,10 @@ const softRevealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.18 },
+  { threshold: 0.4 },
 );
 
-document.querySelectorAll(".js_soft_reveal, [data-animate]").forEach((el) => softRevealObserver.observe(el));
+document.querySelectorAll(".js_soft_reveal").forEach((el) => softRevealObserver.observe(el));
 
 // 自動無限スライダー
 const track = document.getElementById("sliderTrack");
@@ -103,22 +89,4 @@ if (track) {
   track.addEventListener("mouseleave", () => {
     paused = false;
   });
-}
-
-function scrollToCard(id) {
-  const card = document.getElementById(id);
-  card.scrollIntoView({ behavior: "smooth", block: "center" });
-  card.style.boxShadow = "0 0 0 3px #2563eb, 0 8px 32px rgba(37,99,235,0.2)";
-  setTimeout(() => (card.style.boxShadow = ""), 1500);
-}
-
-function closeSection() {
-  const section = document.querySelector(".section");
-  section.style.opacity = "0";
-  section.style.transform = "translateY(-10px)";
-  section.style.transition = "opacity 0.3s, transform 0.3s";
-  setTimeout(() => {
-    section.style.opacity = "1";
-    section.style.transform = "";
-  }, 400);
 }

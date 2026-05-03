@@ -264,7 +264,8 @@ body.home_page {
 }
 
 /* ┌─────────────────────────────────────────┐
-   │ キッカー（小見出しラベル）                  │
+   │ キッカー（小見出しラベル）     
+   　「このセクションは何についてのセクションか」を短く示す小さなラベル             │
    └─────────────────────────────────────────┘ */
 
 /* 「Work Support」「About us」などの小さいラベル。左に銅色の縦線が入る */
@@ -430,7 +431,7 @@ body.home_page {
   font-family: var(--font-title);
   font-size: 4.6rem;
   font-weight: 600;
-  line-height: 1.12;
+  line-height: 1.5;
   letter-spacing: 0;
 }
 
@@ -517,19 +518,7 @@ body.home_page {
    │ スクロールアニメーション（js_soft_reveal）   │
    └─────────────────────────────────────────┘ */
 
-/* 初期状態は透明・少し下にずれている。script.js が is_visible を付けたら表示 */
-.js_soft_reveal {
-  opacity: 0;
-  transform: translateY(4rem);
-  transition:
-    opacity 0.7s ease,
-    transform 0.8s ease;
-}
-
-.js_soft_reveal.is_visible {
-  opacity: 1;
-  transform: none;
-}
+/* js_soft_reveal のベース定義は style.css で管理 */
 
 /* ┌─────────────────────────────────────────┐
    │ About → サービスカード（軽作業・IT業務）  橋渡し（緑の斜め帯）    │
@@ -559,8 +548,7 @@ body.home_page {
   position: absolute;
 
   top: -16rem;
-  left: 50%;
-  transform: translateX(-20%);
+  left: 40%;
 
   width: 52%;
   height: 34rem;
@@ -1212,6 +1200,10 @@ body.home_page {
   color: rgba(255, 255, 255, 0.76);
   font-size: 1.65rem;
   line-height: 2;
+}
+
+.home_msg {
+  line-height: 3;
 }
 
 /* backdrop-filter: blur で背景をぼかしてすりガラス風（glassmorphism） */

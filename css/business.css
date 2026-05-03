@@ -21,8 +21,7 @@
    │ ベース                                   │
    └─────────────────────────────────────────┘ */
 html {
-  font-size: calc(10 / 1280 * 100vw); /* 1280px時に1rem=10px。画面幅に比例して伸びる */
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* style.css でフォントサイズを管理 */
 }
 
 body {
@@ -1316,21 +1315,6 @@ em {
   letter-spacing: 0.06em;
 }
 
-/* ┌─────────────────────────────────────────┐
-   │ スクロールアニメーション                   │
-   └─────────────────────────────────────────┘ */
-[data-animate] {
-  opacity: 0;
-  transform: translateY(2.2rem);
-  transition:
-    opacity 0.8s var(--ease),
-    transform 0.8s var(--ease);
-}
-
-[data-animate].is_visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* ┌─────────────────────────────────────────┐
    │ アニメーション軽減（アクセシビリティ）      │
@@ -1344,10 +1328,6 @@ em {
     transition-duration: 0.01ms !important;
   }
 
-  [data-animate] {
-    opacity: 1;
-    transform: none;
-  }
 
   .business_hero .section_label,
   .business_hero h1,
@@ -1442,10 +1422,6 @@ em {
    │ スマホ（700px以下）                       │
    └─────────────────────────────────────────┘ */
 @media screen and (max-width: 700px) {
-  html {
-    font-size: calc(10 / 375 * 100vw); /* 375px時に1rem=10px */
-  }
-
   body {
     background-size: 4.8rem 4.8rem;
   }

@@ -1,46 +1,45 @@
-/*
-Theme Name: 
-*/
+/* ┌─────────────────────────────────────────┐
+   │ 共通スタイル（全ページ共通）               │
+   └─────────────────────────────────────────┘ */
 
+/* ベースフォントサイズ（1280px で 1rem = 10px） */
 html {
   font-size: calc(10 / 1280 * 100vw);
-  /* 画面幅1280pxで10px*/
 }
 
-img {
-  width: 100%;
-  object-fit: cover;
-}
-
-.sp_only {
-  display: none;
-}
-/* <!-- メインビジュアルここから --> */
-.ar_main_img {
-  height: 37rem;
-  object-fit: cover;
-}
-
-/* ┌─────────────────────────────────────────┐
-   │ サイト共通部分                        │
-   └─────────────────────────────────────────┘ */
-:root {
-  --side-width: 22rem;
-  --font-size-base: 1.4rem;
-}
-
+/* スマホ（375px で 1rem = 10px） */
 @media screen and (max-width: 699.98px) {
   html {
     font-size: calc(10 / 375 * 100vw);
-    /* 画面幅375pxで10px*/
   }
-  /* <!-- メインビジュアルここから --> */
-  .ar_main_img {
-    margin-top: 8rem;
-    height: 15rem;
-  }
-  /* <!-- メインビジュアルここまで --> */
+}
+
+/* スマホのみ表示する要素 */
+.sp_only {
+  display: none;
+}
+
+@media screen and (max-width: 699.98px) {
   .sp_only {
     display: block;
   }
+}
+
+/* ┌─────────────────────────────────────────┐
+   │ スクロールアニメーション（js_soft_reveal） │
+   └─────────────────────────────────────────┘ */
+
+/* 初期状態：透明＋下にずれた位置 */
+.js_soft_reveal {
+  opacity: 0;
+  transform: translateY(4rem);
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s ease;
+}
+
+/* 画面に入ったとき：表示 */
+.js_soft_reveal.is_visible {
+  opacity: 1;
+  transform: none;
 }
