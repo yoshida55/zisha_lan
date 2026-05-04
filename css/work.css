@@ -793,7 +793,6 @@ body.home_page {
 }
 
 .home_view_more {
-  display: inline-flex;
   padding: 0.5rem 2rem;
   border-radius: 50px;
   background: var(--green);
@@ -1170,6 +1169,7 @@ body.home_page {
   color: #fff;
   position: relative;
   overflow: hidden;
+  padding-bottom: 3rem;
 }
 
 .home_contact::before {
@@ -1180,18 +1180,10 @@ body.home_page {
   color: rgba(255, 255, 255, 0.05);
 }
 
-.home_contact_inner {
-  display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(34rem, 1.18fr); /* 文章:フォーム = 約4:6 */
-  gap: 5.6rem;
-  align-items: start;
-  width: min(118rem, calc(100% - 4rem));
-  margin: 0 auto;
-  padding: 7.2rem 0;
-}
-
 .home_contact .home_kicker {
   color: rgba(255, 255, 255, 0.72);
+  margin-top: 2rem;
+  margin-left: 3rem;
 }
 
 .home_contact p:not(.home_kicker) {
@@ -1208,6 +1200,7 @@ body.home_page {
 
 /* backdrop-filter: blur で背景をぼかしてすりガラス風（glassmorphism） */
 .home_contact_form {
+  width: 70%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.4rem;
@@ -1221,6 +1214,18 @@ body.home_page {
 .home_contact_form label {
   display: grid;
   gap: 0.7rem;
+}
+
+.home_contact_content {
+  padding: 0 2.4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.4rem;
+}
+
+.content_left_msg {
+  width: 30%;
 }
 
 .home_contact_form span {
@@ -1404,18 +1409,143 @@ body.home_page {
    └─────────────────────────────────────────┘ */
 
 @media screen and (max-width: 700px) {
+  /* ┌─────────────────────────────────────────┐
+     │ セクション共通                        │
+     └─────────────────────────────────────────┘ */
+  /* 最大幅を決めて中央寄せ。calc(100% - 4rem) で左右に最低2remの余白を確保 */
+  .home_section {
+    width: min(118rem, calc(100% - 4rem));
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
+
   .logo {
     width: 13.2rem;
   }
 
+  /* スマホは縦長のため動画の右側が切れる → 右寄りに表示 */
+  .home_hero_bg_video {
+    object-fit: cover;
+    object-position: 60% center; /* 右寄りに表示 */
+  }
+
+  /* 事業内容 */
+  .nav_link {
+    display: none;
+  }
+
+  /* セクションラベルを小さく */
+  .home_kicker {
+    font-size: 1rem;
+  }
+  /* ヘッダーの高さを小さくして、ヒーローセクションをより大きく見せる */
   .home_page .header_inner {
-    min-height: 6.4rem;
+    min-height: 5rem;
   }
 
   /* スマホでは 100svh（アドレスバーを除いた実際の高さ）を使う */
-  .home_hero,
   .home_hero_inner {
-    min-height: 100svh;
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100svh;
+    margin: 0 auto;
+    padding: 13rem 0 16rem;
+  }
+
+  /* ヒーローセクションのボタン(共通スタイル・２つの) */
+  .home_button {
+    display: none;
+  }
+
+  /*セクションにまたがる画像のサイズを変える*/
+  .home_bridge_image {
+    position: absolute;
+
+    top: -5rem;
+    width: 20rem;
+    height: 15rem;
+
+    border-radius: 1rem;
+
+    /* 直接画像を指定しない理由は、再度にあるバーを隠すため➡画像を綺麗にする*/
+    background-image: url(../img/背景画像用３人がデスクで話す_私服.png);
+    background-position: center;
+    background-size: cover;
+
+    z-index: 2;
+  }
+
+  /* ブリッジを削除する */
+  .service_bridge {
+    display: none;
+  }
+
+  /* 画像（左）とテキスト（右）を grid で横並び。0.9fr / 1.1fr で微妙に非対称にしている */
+  .home_about_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  /* ブリッジの高さを減らす */
+  .home_bridge {
+    height: 13rem;
+  }
+
+  .home_services_wrap {
+    background-color: rgba(58, 107, 94, 0.4);
+    position: relative;
+    z-index: 0;
+    height: auto;
+    padding-bottom: var(--bridge-overlap); /* service_bridge の margin-top: -20rem 分を確保 */
+  }
+
+  .home_about_body h2 {
+    margin-bottom: 0.8rem;
+    text-wrap: balance; /* 見出しの行末が揃ってバランスよく折り返される */
+    font-size: 3.1rem;
+    line-height: 1.3;
+  }
+
+  .home_section_head h2 {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+
+  .home_view_more {
+    width: 60%;
+    text-align: center;
+  }
+
+  /* ┌─────────────────────────────────────────┐
+     │ サービス                        │
+     └─────────────────────────────────────────┘ */
+
+  /* Servicesだけ：h2 と VIEW MORE ボタンを横並び */
+  .home_services .home_section_head {
+    display: flex;
+    align-items: center;
+    justify-content: column;
+    gap: 2rem;
+  }
+
+  /* Servicesだけ：h2 と VIEW MORE ボタンを横並び */
+  .home_services .home_section_head {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .home_section a {
+    display: block;
+    color: #fff;
+    object-fit: cover;
+  }
+
+  .home_services {
+    padding-bottom: 0;
   }
 
   .home_hero_inner {
@@ -1444,17 +1574,8 @@ body.home_page {
     font-size: 1.55rem;
   }
 
-  .home_section,
   .home_work_inner {
     padding: 7.2rem 0;
-  }
-
-  /* 横並びを全部1カラムに切り替え */
-  .home_about_grid,
-  .home_work_inner,
-  .home_footer_inner,
-  .home_contact_inner {
-    grid-template-columns: 1fr;
   }
 
   .home_service_columns {
@@ -1470,7 +1591,9 @@ body.home_page {
   }
 
   .home_contact_inner {
-    padding: 6.4rem 0;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .home_contact_form {
@@ -1502,5 +1625,42 @@ body.home_page {
   .home_footer_bottom {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  /* ┌─────────────────────────────────────────┐
+     │ お問合せ                        │
+     └─────────────────────────────────────────┘ */
+  .home_contact_content {
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .content_left_msg {
+    width: 100%;
+    text-align: center;
+  }
+
+  .home_contact_form {
+    width: 100%;
+  }
+
+  /* ┌─────────────────────────────────────────┐
+     │ フッター                        │
+     └─────────────────────────────────────────┘ */
+
+  /* ロゴ・会社情報・ナビ・CTAボタン の4カラム構成 */
+  .home_footer_inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    align-items: start;
+    width: min(118rem, calc(100% - 4rem));
+    margin: 0 auto;
+    padding: 7.2rem 0 5.6rem;
+  }
+
+  .home_footer_nav {
+    display: none;
   }
 }

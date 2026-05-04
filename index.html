@@ -101,12 +101,12 @@
         読む人の視線を自然に誘導できる。
       -->
       <section class="home_section home_about" id="about">
+        <p class="home_kicker">About us</p>
         <div class="home_about_grid">
           <div class="home_about_image js_soft_reveal">
             <img src="img/女性の就労支援員と就労者が相談している.png" alt="スタッフが相談しながら業務を進めている様子" />
           </div>
           <div class="home_about_body js_soft_reveal">
-            <p class="home_kicker">About us</p>
             <h2>一人ひとりに合った、働く場所がここにあります。</h2>
             <p>私たちは、軽作業・IT業務を通じて、一人ひとりが自分のペースで働く経験を重ねられる就労継続支援事業所です。得意なことや不安なことを一緒に確認しながら、無理のない形で仕事に向き合えるよう支援します。</p>
             <p>「まず見学だけしたい」「どんな仕事があるか知りたい」そんな段階からでも、気軽にご相談ください。</p>
@@ -305,38 +305,41 @@
       -->
       <section class="home_contact" id="contact">
         <div class="home_contact_inner">
-          <div>
-            <p class="home_kicker">Contact</p>
-            <h2>まずはお気軽に、見学のご相談をどうぞ。</h2>
-            <p class="home_msg">見学だけでも大丈夫です。利用を考えている方、ご家族、支援者の方、仕事の依頼を検討している企業の方まで、まだ決めきれていない段階でもお気軽にご相談ください。</p>
+          <p class="home_kicker">Contact</p>
+          <!-- ここ【flex】でメッセージとフォームを横並びにしている。スマホでは縦並びになる。 -->
+          <div class="home_contact_content js_soft_reveal">
+            <div class="content_left_msg">
+              <h2>まずはお気軽に、見学のご相談をどうぞ。</h2>
+              <p class="home_msg">見学だけでも大丈夫です。利用を考えている方、ご家族、支援者の方、仕事の依頼を検討している企業の方まで、まだ決めきれていない段階でもお気軽にご相談ください。</p>
+            </div>
+            <form class="home_contact_form" action="#" method="post">
+              <label>
+                <span>お問い合わせ種別</span>
+                <select name="type">
+                  <option>見学・利用について</option>
+                  <option>仕事の依頼について</option>
+                  <option>その他</option>
+                </select>
+              </label>
+              <label>
+                <span>お名前</span>
+                <input type="text" name="name" placeholder="山田 太郎" />
+              </label>
+              <label>
+                <span>メールアドレス</span>
+                <input type="email" name="email" placeholder="example@example.com" />
+              </label>
+              <label>
+                <span>電話番号</span>
+                <input type="tel" name="tel" placeholder="090-0000-0000" />
+              </label>
+              <label class="home_contact_form_wide">
+                <span>お問い合わせ内容</span>
+                <textarea name="message" rows="5" placeholder="見学希望日やご相談内容をご入力ください。"></textarea>
+              </label>
+              <button type="submit">送信する</button>
+            </form>
           </div>
-          <form class="home_contact_form" action="#" method="post">
-            <label>
-              <span>お問い合わせ種別</span>
-              <select name="type">
-                <option>見学・利用について</option>
-                <option>仕事の依頼について</option>
-                <option>その他</option>
-              </select>
-            </label>
-            <label>
-              <span>お名前</span>
-              <input type="text" name="name" placeholder="山田 太郎" />
-            </label>
-            <label>
-              <span>メールアドレス</span>
-              <input type="email" name="email" placeholder="example@example.com" />
-            </label>
-            <label>
-              <span>電話番号</span>
-              <input type="tel" name="tel" placeholder="090-0000-0000" />
-            </label>
-            <label class="home_contact_form_wide">
-              <span>お問い合わせ内容</span>
-              <textarea name="message" rows="5" placeholder="見学希望日やご相談内容をご入力ください。"></textarea>
-            </label>
-            <button type="submit">送信する</button>
-          </form>
         </div>
       </section>
     </main>
@@ -391,7 +394,7 @@
         1. スクロール量を見てヘッダーに "header_scrolled" クラスを付ける
         2. IntersectionObserver で "js_soft_reveal" クラスの要素が
            画面に入ったら "is_visible" を追加してふわっと表示させる
-      </body> の直前に置くことで、HTML が全部読み込まれてから JS が動く。
+      body の閉じタグの直前に置くことで、HTML が全部読み込まれてから JS が動く。
     -->
     <script src="script.js"></script>
   </body>
