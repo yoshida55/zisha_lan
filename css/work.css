@@ -1419,6 +1419,10 @@ body.home_page {
     padding: 3rem 0;
   }
 
+  .home_hero h1 {
+    font-size: 2.8rem;
+  }
+
   /* ┌─────────────────────────────────────────┐
   │ ヒーローセクション                         │
    └─────────────────────────────────────────┘ */
@@ -1469,6 +1473,19 @@ body.home_page {
   /* ヒーローセクションのボタン(共通スタイル・２つの) */
   .home_button {
     display: none;
+  }
+
+  /* ┌─────────────────────────────────────────┐
+  │ aboutセクション                         │
+   └─────────────────────────────────────────┘ */
+  /* セクションのh2も同様に */
+  .home_about h2 {
+    font-size: 2rem;
+  }
+
+  /* パディングも詰める */
+  .home_about {
+    padding: 4rem 1.6rem;
   }
 
   /*セクションにまたがる画像のサイズを変える*/
@@ -1627,16 +1644,36 @@ body.home_page {
   .home_flow_timeline::before {
     left: 2.7rem;
   }
+  /* ┌─────────────────────────────────────────┐
+   │ タイムライン                        │
+   └─────────────────────────────────────────┘ */
 
   .home_flow_timeline b {
     width: 5.4rem;
     height: 5.4rem;
+    font-size: 0.7rem; /* 文字を小さくして1行に収める */
+    white-space: nowrap; /* 折り返し禁止 */
+  }
+
+  .home_flow .home_section_lead {
+    margin: 0;
+    padding-left: 0.5rem;
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
   }
 
   /* 著作権エリアを縦積みに */
   .home_footer_bottom {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .home_flow_timeline h3 {
+    font-size: 1.8rem; /* PCは2.4rem → モバイルは1.8rem くらい */
+  }
+
+  .home_flow_timeline p {
+    font-size: 1.3rem; /* PCは2.4rem → モバイルは1.8rem くらい */
   }
 
   /* ┌─────────────────────────────────────────┐
