@@ -1416,7 +1416,19 @@ body.home_page {
   .home_section {
     width: min(118rem, calc(100% - 4rem));
     margin: 0 auto;
-    padding: 4rem 0;
+    padding: 3rem 0;
+  }
+
+  /* ┌─────────────────────────────────────────┐
+  │ ヒーローセクション                         │
+   └─────────────────────────────────────────┘ */
+
+  .home_hero {
+    position: relative; /* 子要素を absolute で重ねるための基準点 */
+    height: 60vh;
+    overflow: hidden; /* スライド画像がはみ出ないよう切り取る */
+    color: #fff;
+    background: #20262d; /* 画像が読み込まれるまで表示される暗い下地色 */
   }
 
   .logo {
@@ -1625,6 +1637,20 @@ body.home_page {
   .home_footer_bottom {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  /* ┌─────────────────────────────────────────┐
+   │ Work Scene（背景動画エリア）               │
+   └─────────────────────────────────────────┘ */
+
+  .home_work {
+    margin-top: calc(-1 * var(--bridge-overlap));
+    position: relative;
+    z-index: 1;
+    height: 85rem;
+    background: #0e3b34 url("../img/軽作業風景手前に二人、後ろに３人(ChatGpt_机の上で作業).png") center / cover no-repeat;
+    color: #fff;
+    overflow: hidden;
   }
 
   /* ┌─────────────────────────────────────────┐
