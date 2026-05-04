@@ -1079,32 +1079,19 @@ em {
   align-items: start;
   opacity: 0;
   transform: translate3d(0, 2.2rem, 0);
+  transition:
+    opacity 0.72s var(--ease),
+    transform 0.72s var(--ease);
 }
 
 /* スクロールで表示エリアに入ったら順番にフェードイン */
 .daily_inner.is_visible .daily_item {
-  animation: daily_item-in 0.72s var(--ease) forwards;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
-.daily_inner.is_visible .daily_item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.daily_inner.is_visible .daily_item:nth-child(2) {
-  animation-delay: 0.18s;
-}
-.daily_inner.is_visible .daily_item:nth-child(3) {
-  animation-delay: 0.26s;
-}
-.daily_inner.is_visible .daily_item:nth-child(4) {
-  animation-delay: 0.34s;
-}
-.daily_inner.is_visible .daily_item:nth-child(5) {
-  animation-delay: 0.42s;
-}
-.daily_inner.is_visible .daily_item:nth-child(6) {
-  animation-delay: 0.5s;
-}
-
+/* ここは他とフェードインしている処理同様まとめてかいてもいいのだが、子（daily_inner）ではなく
+親にアニメーションの遅延をつけるために、子要素ごとに分けて指定している。そうしないと順番にならない */
 /* 縦線上の丸ドット */
 .daily_item::before {
   content: "";
@@ -1218,13 +1205,6 @@ em {
   padding-left: 17rem;
 }
 
-@keyframes daily_item-in {
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 /* ┌─────────────────────────────────────────┐
    │ CTA（お問い合わせ）                       │
    └─────────────────────────────────────────┘ */
@@ -1315,7 +1295,6 @@ em {
   letter-spacing: 0.06em;
 }
 
-
 /* ┌─────────────────────────────────────────┐
    │ アニメーション軽減（アクセシビリティ）      │
    └─────────────────────────────────────────┘ */
@@ -1327,7 +1306,6 @@ em {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-
 
   .business_hero .section_label,
   .business_hero h1,
