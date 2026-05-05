@@ -427,25 +427,60 @@ a {
    └─────────────────────────────────────────┘ */
 
 @media (max-width: 768px) {
+  /* ヘッダー */
+  .nav_link {
+    display: none;
+  }
+
+  .logo {
+    width: 13.2rem;
+  }
+
+  /* ヒーロー */
   .contact_hero {
-    padding: 12rem 2rem 4rem;
+    padding: 10rem 2rem 4rem;
   }
 
   .contact_hero h1 {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
+    line-height: 1.3;
   }
 
   .contact_hero_lead {
     font-size: 1.4rem;
   }
 
+  /* フォームセクション */
+  .contact_form_section {
+    padding: 5rem 1.6rem 8rem;
+  }
+
+  .contact_form {
+    gap: 2.4rem;
+  }
+
+  .contact_note {
+    font-size: 1.3rem;
+    padding: 1.6rem 1.8rem;
+  }
+
+  .contact_input,
+  .contact_textarea {
+    font-size: 1.4rem;
+    padding: 1.2rem 1.4rem;
+  }
+
   .contact_submit {
     width: 100%;
     padding: 1.6rem;
+    font-size: 1.5rem;
   }
 
+  /* フッター */
   .home_footer_inner {
     grid-template-columns: 1fr;
+    padding: 4rem 2rem;
+    gap: 3rem;
   }
 
   .home_footer_bottom {

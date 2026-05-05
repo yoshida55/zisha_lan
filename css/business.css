@@ -1413,6 +1413,28 @@ em {
     padding: 10.5rem 1.8rem 6rem;
   }
 
+  .business_hero_title {
+    font-size: 3.8rem;
+    line-height: 1.5;
+  }
+
+  .section_head h2 {
+    font-size: 2.4rem;
+  }
+
+  .cta_inner h2 {
+    font-size: 2.2rem;
+  }
+
+  .daily_message {
+    padding-left: 0;
+    font-size: 1.7rem;
+  }
+
+  .overview_flow_message {
+    font-size: 2.2rem;
+  }
+
   .business_hero::after {
     background: linear-gradient(90deg, rgba(246, 242, 236, 0.98), rgba(246, 242, 236, 0.9));
   }
