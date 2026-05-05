@@ -43,7 +43,7 @@
         </a>
         <div class="header_actions">
           <a href="business.html" class="nav_link nav_menu">事業内容</a>
-          <a href="#contact" class="nav_link nav_cta">お問い合わせ</a>
+          <a href="contact.html" class="nav_link nav_cta">お問い合わせ</a>
           <!-- ハンバーガーボタン（三本線メニュー） まだ未実装-->
           <button class="hamburger" aria-label="メニューを開く">
             <span></span>
@@ -85,7 +85,7 @@
           </h1>
           <p class="home_hero_text">就労継続支援事業所として、軽作業やIT業務を通じて働く経験を積み重ねます。<br />企業からお預かりする仕事にも、丁寧さと責任を持って取り組んでいます。</p>
           <div class="home_hero_actions">
-            <a href="#contact" class="home_button home_button_primary">見学について相談する</a>
+            <a href="contact.html" class="home_button home_button_primary">見学について相談する</a>
             <a href="#service" class="home_button home_button_ghost">どんな仕事があるか見る</a>
           </div>
         </div>
@@ -168,7 +168,7 @@
           見学だけでも、話を聞くだけでも。<br />
           一人で悩まず、気軽に相談してください。
         </p>
-        <a href="#contact" class="home_button home_button_primary js_soft_reveal">まず見学の相談をする</a>
+        <a href="contact.html" class="home_button home_button_primary js_soft_reveal">まず見学の相談をする</a>
       </div>
 
       <!-- ========== Work Scene セクション（背景動画エリア） ========== -->
@@ -295,50 +295,19 @@
         </div>
       </section>
 
-      <!-- ========== お問い合わせフォーム ========== -->
-      <!--
-        緑のグラデーション背景の上に、すりガラス風（glassmorphism）のフォームを配置。
-        backdrop-filter: blur() で後ろをぼかして半透明感を出している。
-        現状は action="#" なので送信しても画面が変わるだけ（実際には送信されない）。
-        本番では action にメール送信スクリプトのURLを入れる必要がある。
-        home_contact_form_wide クラスは「テキストエリアだけ2列またがせる」ための CSS クラス。
-      -->
+      <!-- ========== お問い合わせ CTA ========== -->
       <section class="home_contact" id="contact">
         <div class="home_contact_inner">
           <p class="home_kicker">Contact</p>
-          <!-- ここ【flex】でメッセージとフォームを横並びにしている。スマホでは縦並びになる。 -->
           <div class="home_contact_content js_soft_reveal">
             <div class="content_left_msg">
               <h2>まずはお気軽に、見学のご相談をどうぞ。</h2>
               <p class="home_msg">見学だけでも大丈夫です。利用を考えている方、ご家族、支援者の方、仕事の依頼を検討している企業の方まで、まだ決めきれていない段階でもお気軽にご相談ください。</p>
             </div>
-            <form class="home_contact_form" action="#" method="post">
-              <label>
-                <span>お問い合わせ種別</span>
-                <select name="type">
-                  <option>見学・利用について</option>
-                  <option>仕事の依頼について</option>
-                  <option>その他</option>
-                </select>
-              </label>
-              <label>
-                <span>お名前</span>
-                <input type="text" name="name" placeholder="山田 太郎" />
-              </label>
-              <label>
-                <span>メールアドレス</span>
-                <input type="email" name="email" placeholder="example@example.com" />
-              </label>
-              <label>
-                <span>電話番号</span>
-                <input type="tel" name="tel" placeholder="090-0000-0000" />
-              </label>
-              <label class="home_contact_form_wide">
-                <span>お問い合わせ内容</span>
-                <textarea name="message" rows="5" placeholder="見学希望日やご相談内容をご入力ください。"></textarea>
-              </label>
-              <button type="submit">送信する</button>
-            </form>
+            <div class="home_contact_cta">
+              <p>一人で悩まず、気軽に相談してください。</p>
+              <a href="contact.html" class="home_contact_btn">お問い合わせフォームへ →</a>
+            </div>
           </div>
         </div>
       </section>
@@ -374,10 +343,10 @@
           <a href="#works">作業風景</a>
           <a href="#flow">利用までの流れ</a>
           <a href="#faq">よくあるご質問</a>
-          <a href="#contact">お問い合わせ</a>
+          <a href="contact.html">お問い合わせ</a>
         </nav>
         <div class="home_footer_action">
-          <a href="#contact">見学・相談する</a>
+          <a href="contact.html">見学・相談する</a>
         </div>
       </div>
       <div class="home_footer_bottom">

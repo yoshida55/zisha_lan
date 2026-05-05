@@ -7,6 +7,10 @@ html {
   font-size: calc(10 / 1280 * 100vw);
 }
 
+.br_pc {
+  display: block;
+}
+
 /* スマホ（375px で 1rem = 10px） */
 @media screen and (max-width: 699.98px) {
   html {
