@@ -58,12 +58,20 @@ a {
   z-index: 100; /* 他の要素より必ず前面に出す */
 
   border-bottom: none;
-  background: transparent;
+  background: rgba(250, 250, 247, 0.08); /* 完全透明ではなく、ごく薄い白を常に敷く */
   backdrop-filter: none;
   transition:
     background 0.3s ease,
     backdrop-filter 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+/* スクロール後：クリームがかった白 + すりガラス */
+.header_scrolled {
+  background: rgba(250, 250, 247, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
 }
 
 .header_inner {
@@ -78,12 +86,12 @@ a {
 .logo {
   display: inline-flex;
   align-items: center;
-  width: 17rem;
+  width: 28rem;
   min-width: 0; /* flexコンテナ内でロゴが縮まないよう保護 */
 }
 
 .logo img {
-  width: 100%;
+  width: 14rem;
   height: auto;
   object-fit: contain;
 }
@@ -96,7 +104,7 @@ a {
 .home_page .header_inner {
   max-width: 118rem;
   min-height: 7.2rem;
-  padding: 1.2rem 2rem;
+  padding: 0.6rem 2rem 0.6rem 0.4rem;
 
   opacity: 0;
   transform: translateY(-70rem);
@@ -410,7 +418,8 @@ body.home_page {
 
 /* 最大幅を決めて中央寄せ。calc(100% - 4rem) で左右に最低2remの余白を確保 */
 .home_section {
-  width: min(118rem, calc(100% - 4rem));
+  max-width: 118rem;
+  padding: 0 2rem;
   margin: 0 auto;
   padding: 11rem 0;
 }
@@ -423,14 +432,15 @@ body.home_page {
   line-height: 2;
 }
 
-/* 各セクションの大見出し共通スタイル（明朝体・大きめ） */
+/* 各セクションの大見出し共通スタイル（ゴシック体・企業向けに読みやすく） */
 .home_section h2,
 .home_work h2,
-.home_contact h2 {
+.home_contact h2,
+.home_faq h2 {
   margin: 0;
-  font-family: var(--font-title);
-  font-size: 4.6rem;
-  font-weight: 600;
+  font-family: var(--font-ja);
+  font-size: 3.2rem;
+  font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0;
 }
@@ -505,8 +515,10 @@ body.home_page {
 
 .home_about_body h2 {
   margin-bottom: 0.8rem;
-  text-wrap: balance; /* 見出しの行末が揃ってバランスよく折り返される */
-  font-size: 5.1rem;
+  text-wrap: balance;
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 3.4rem;
   line-height: 1.3;
 }
 
@@ -713,7 +725,7 @@ body.home_page {
 .service_bridge::before {
   content: "STEP";
   position: absolute;
-  top: 0;
+  top: 5rem; /* ヘッダーとの重なり防止のため下げる */
   left: 3%;
   font-family: var(--font-en);
   font-size: 8rem;
@@ -818,7 +830,8 @@ body.home_page {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 6rem;
-  width: min(118rem, calc(100% - 4rem));
+  max-width: 118rem;
+  padding: 0 2rem;
   margin: 0 auto;
   padding: calc(var(--bridge-overlap) + 14rem) 0 5rem; /* 上：bridge重なり分＋通常余白 */
 }
@@ -1256,7 +1269,8 @@ body.home_page {
   grid-template-columns: minmax(22rem, 0.9fr) minmax(24rem, 1fr) minmax(18rem, 0.72fr) auto;
   gap: 5rem;
   align-items: start;
-  width: min(118rem, calc(100% - 4rem));
+  max-width: 118rem;
+  padding: 0 2rem;
   margin: 0 auto;
   padding: 7.2rem 0 5.6rem;
 }
@@ -1265,11 +1279,12 @@ body.home_page {
   display: inline-flex;
   align-items: center;
   width: 17rem;
+  margin-top: -1rem; /* ロゴを少し上にはみ出させて配置 */
   margin-bottom: 2rem;
 }
 
 .home_footer_logo img {
-  width: 100%;
+  width: 14rem;
   height: auto;
   object-fit: contain;
 }
@@ -1339,7 +1354,8 @@ body.home_page {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  width: min(118rem, calc(100% - 4rem));
+  max-width: 118rem;
+  padding: 0 2rem;
   margin: 0 auto;
   border-top: 1px solid var(--line);
   padding: 2.2rem 0 3rem;
@@ -1366,7 +1382,8 @@ body.home_page {
      └─────────────────────────────────────────┘ */
   /* 最大幅を決めて中央寄せ。calc(100% - 4rem) で左右に最低2remの余白を確保 */
   .home_section {
-    width: min(118rem, calc(100% - 4rem));
+    max-width: 118rem;
+    padding: 0 2rem;
     margin: 0 auto;
     padding: 3rem 0;
   }
@@ -1378,8 +1395,16 @@ body.home_page {
 
   .home_section h2,
   .home_work h2,
-  .home_contact h2 {
+  .home_contact h2,
+  .home_faq h2 {
     font-size: 2.2rem;
+  }
+
+  .home_hero_text,
+  .home_about_body,
+  .home_work_text p:not(.home_kicker),
+  .home_contact p:not(.home_kicker) {
+    font-size: 1.55rem;
   }
 
   /* セクションラベルを小さく */
@@ -1510,7 +1535,7 @@ body.home_page {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 2rem;
+    padding: 0 1.6rem 0 2.6rem;
   }
 
   /* ブリッジの高さを減らす */
@@ -1579,15 +1604,8 @@ body.home_page {
     margin-bottom: 2rem;
   }
 
-  .home_hero_text,
-  .home_about_body,
-  .home_work_text p:not(.home_kicker),
-  .home_contact p:not(.home_kicker) {
-    font-size: 1.55rem;
-  }
-
   .home_work_inner {
-    padding: 7.2rem 0;
+    padding: 4rem 2rem;
   }
 
   .home_button {
@@ -1656,7 +1674,7 @@ body.home_page {
   }
 
   /* ┌─────────────────────────────────────────┐
-   │ Work Scene（背景動画エリア）               │
+   │ Work Scene             │
    └─────────────────────────────────────────┘ */
 
   .home_work {
@@ -1697,7 +1715,8 @@ body.home_page {
     grid-template-columns: 1fr;
     gap: 5rem;
     align-items: start;
-    width: min(118rem, calc(100% - 4rem));
+    max-width: 118rem;
+    padding: 0 2rem;
     margin: 0 auto;
     padding: 7.2rem 0 5.6rem;
   }

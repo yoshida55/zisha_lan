@@ -62,7 +62,7 @@ a {
 }
 
 .logo img {
-  width: 100%;
+  width: 14rem;
   height: auto;
   object-fit: contain;
 }
@@ -101,7 +101,9 @@ a {
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
 }
 
 .nav_cta::after {
@@ -143,9 +145,7 @@ a {
 .contact_hero {
   padding: 16rem 2rem 6rem;
   text-align: center;
-  background: linear-gradient(90deg, rgba(23,27,32,0.045) 1px, transparent 1px),
-              linear-gradient(0deg, rgba(23,27,32,0.045) 1px, transparent 1px),
-              #f6f2ec;
+  background: linear-gradient(90deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), linear-gradient(0deg, rgba(23, 27, 32, 0.045) 1px, transparent 1px), #f6f2ec;
   background-size: 48px 48px;
 }
 
@@ -309,7 +309,9 @@ a {
   border-radius: 8px;
   cursor: pointer;
   letter-spacing: 0.05em;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
   margin-top: 1.6rem;
 }
 

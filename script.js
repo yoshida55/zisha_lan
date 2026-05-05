@@ -2,22 +2,22 @@ window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
 
-// ヘッダー：スクロールでロゴ非表示＋背景つき小型に(現在理由していない)
-// (function () {
-//   const header = document.querySelector(".header");
-//   if (!header) return;
-//   window.addEventListener(
-//     "scroll",
-//     () => {
-//       if (window.scrollY > 80) {
-//         header.classList.add("header_scrolled");
-//       } else {
-//         header.classList.remove("header_scrolled");
-//       }
-//     },
-//     { passive: true },
-//   );
-// })();
+// ヘッダー：スクロール80px超えたら白背景に切り替え
+(function () {
+  const header = document.querySelector(".header");
+  if (!header) return;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.scrollY > 80) {
+        header.classList.add("header_scrolled");
+      } else {
+        header.classList.remove("header_scrolled");
+      }
+    },
+    { passive: true },
+  );
+})();
 
 // ヒーロー動画クロスフェード（5秒ごとに交互切り替え）
 (function () {
