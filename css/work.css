@@ -1373,6 +1373,7 @@ body.home_page {
 
   .home_hero h1 {
     font-size: 2.4rem;
+    line-height: 1.6;
   }
 
   .home_section h2,
@@ -1533,7 +1534,7 @@ body.home_page {
   }
 
   .home_section_head h2 {
-    width: 80%;
+    width: 90%;
     margin-bottom: 2rem;
   }
 
