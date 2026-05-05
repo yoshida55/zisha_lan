@@ -25,7 +25,14 @@
       "Bash(cmd /c code \"D:/50_knowledge/00_mis_log.md\")",
       "WebFetch(domain:hrdx.jp)",
       "WebFetch(domain:higgsfield.ai)",
-      "Edit(~/.claude/skills/snippet/**)"
+      "Edit(~/.claude/skills/snippet/**)",
+      "Bash(awk 'NR>=480 && NR<=492 {print NR\": \"$0}' \"d:/02_作業/00_リンクワーク/HTML自動化/過去の課題２/60_自社HP/css/business.css\")",
+      "Bash(awk 'NR>=526 && NR<=545 {print NR\": \"$0}' \"d:/02_作業/00_リンクワーク/HTML自動化/過去の課題２/60_自社HP/css/business.css\")",
+      "Bash(awk 'NR>=585 && NR<=598 {print NR\": \"$0}' \"d:/02_作業/00_リンクワーク/HTML自動化/過去の課題２/60_自社HP/css/business.css\")",
+      "Bash(awk 'NR>=700 && NR<=712 {print NR\": \"$0}' \"d:/02_作業/00_リンクワーク/HTML自動化/過去の課題２/60_自社HP/css/business.css\")",
+      "Bash(awk 'NR>=785 && NR<=796 {print NR\": \"$0}' \"d:/02_作業/00_リンクワーク/HTML自動化/過去の課題２/60_自社HP/css/business.css\")",
+      "Bash(awk 'NR>=690 && NR<=712 {print NR\": \"$0}' \"d:/02_作業/00_リンクワーク/HTML自動化/過去の課題２/60_自社HP/css/business.css\")",
+      "Bash(git add *)"
     ],
     "additionalDirectories": [
       "D:\\01_AI\\10_Python\\00_Python_src\\99_commit\\84_auto-memo補助MCPツール",
