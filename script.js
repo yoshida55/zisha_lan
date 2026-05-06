@@ -19,6 +19,27 @@ window.addEventListener("load", () => {
   );
 })();
 
+// モバイルメニュー
+(function () {
+  const nav = document.querySelector(".header_actions");
+  const button = document.querySelector(".hamburger");
+  if (!nav || !button) return;
+
+  button.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is_open");
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is_open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "メニューを開く");
+    });
+  });
+})();
+
 // ヒーロー動画クロスフェード（5秒ごとに交互切り替え）
 (function () {
   const v1 = document.querySelector(".home_hero_bg_video_1");
