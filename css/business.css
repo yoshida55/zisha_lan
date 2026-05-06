@@ -601,12 +601,9 @@ em {
   top: 2.4rem;
   left: 0;
   z-index: 0;
-  display: flex;
+  display: flex; /*自分の子要素を横並びにするとき*/
   gap: 9rem;
-  width: max-content;
   animation: flow-ribbons 18s linear infinite;
-  will-change: transform;
-  pointer-events: none;
 }
 
 .overview_flow_ribbons span {
@@ -617,9 +614,21 @@ em {
   box-shadow: 0 1.2rem 3rem rgba(23, 27, 32, 0.04);
 }
 
+/* これが２行になる仕組み　spanの偶数を下に移動させる。 */
 .overview_flow_ribbons span:nth-child(even) {
   transform: translateY(5.2rem);
   background: rgba(255, 255, 255, 0.34);
+}
+
+@keyframes flow-ribbons {
+  from {
+    /* これをいれるだけtranslate3d　でGPUが処理して軽くなるらしい */
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* 親要素の幅34rem分だけ左に移動させる。これで、spanがちょうど次のspanの位置に来るので、途切れずに流れるようになる。 */
+    transform: translate3d(-34rem, 0, 0);
+  }
 }
 
 /* 写真カードが左に流れ続けるトラック */
@@ -707,15 +716,6 @@ em {
   font-weight: 700;
   line-height: 1.46;
   letter-spacing: 0;
-}
-
-@keyframes flow-ribbons {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-34rem, 0, 0);
-  }
 }
 
 @keyframes flow-gallery {
@@ -1297,53 +1297,6 @@ em {
   font-family: var(--font-en);
   font-size: 1.05rem;
   letter-spacing: 0.06em;
-}
-
-/* ┌─────────────────────────────────────────┐
-   │ アニメーション軽減（アクセシビリティ）      │
-   └─────────────────────────────────────────┘ */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .business_hero .section_label,
-  .business_hero h1,
-  .business_hero_lead,
-  .business_hero_actions,
-  .daily_item {
-    opacity: 1;
-    transform: none;
-    animation: none !important;
-  }
-
-  .business_hero_media {
-    opacity: var(--hero-media-opacity);
-    transform: none;
-    animation: none !important;
-  }
-
-  .business_hero_media img {
-    transform: none;
-    animation: none !important;
-  }
-
-  .business_marker {
-    background-size: 100% 0.28em;
-    animation: none !important;
-  }
-
-  /* ギャラリーはゆっくりにするだけで止めない */
-  .overview_flow_ribbons {
-    animation: flow-ribbons 42s linear infinite !important;
-  }
-  .overview_flow_track {
-    animation: flow-gallery 48s linear infinite !important;
-  }
 }
 
 /* ┌─────────────────────────────────────────┐

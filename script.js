@@ -58,6 +58,7 @@ const softRevealObserver = new IntersectionObserver(
   { threshold: 0.4 },
 );
 
+document.querySelectorAll(".js_soft_reveal_left").forEach((el) => softRevealObserver.observe(el));
 document.querySelectorAll(".js_soft_reveal").forEach((el) => softRevealObserver.observe(el));
 
 // 自動無限スライダー
