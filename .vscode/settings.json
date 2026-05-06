@@ -1,0 +1,8 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^cd \"D:\\\\02_作業\\\\00_リンクワーク\\\\HTML自動化\\\\過去の課題２\\\\61_AI回答\\\\chat-worker\"; npx wrangler secret list 2>&1$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}
